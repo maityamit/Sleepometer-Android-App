@@ -38,7 +38,9 @@
 
 ||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------:|
-| ![Imgur](Demo/1.png) | ![Imgur](Demo/2.png) |
+| ![Imgur](Demo/1.png) | ![Imgur](Demo/2.png) | ![Imgur](Demo/3.png) |
+| ![Imgur](Demo/4.png) | ![Imgur](Demo/5.png) | ![Imgur](Demo/6.png) |
+| ![Imgur](Demo/7.png) | ![Imgur](Demo/8.png) | |
   
   
   
