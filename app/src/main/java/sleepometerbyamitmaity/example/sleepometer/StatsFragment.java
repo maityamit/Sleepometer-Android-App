@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -42,6 +43,8 @@ public class StatsFragment extends Fragment {
     ValueLineChart mCubicValueLineChart;
     ArrayList<DateData> dataArrayList;
     MCalendarView mCalendarView;
+    DatabaseReference reference;
+    TextView user_name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,11 +53,13 @@ public class StatsFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_stats, container, false);
 
         mCalendarView = view.findViewById(R.id.history_calendarView);
+        user_name = view.findViewById(R.id.stats_name);
 
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         mCubicValueLineChart = (ValueLineChart) view.findViewById(R.id.cubiclinechart);
+        reference = FirebaseDatabase.getInstance().getReference("Users");
 
         Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
         HelloRef = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID).child("Win");
@@ -62,6 +67,7 @@ public class StatsFragment extends Fragment {
 
         Graph();
         highLightDate();
+        dataRetriveFromFirebase();
 
 
         mCalendarView.setOnDateClickListener(new OnDateClickListener() {
@@ -198,6 +204,34 @@ public class StatsFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+    }
+
+    private void dataRetriveFromFirebase() {
+
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Users userprofile = snapshot.getValue(Users.class);
+
+                if (userprofile != null) {
+                    String fullname = userprofile.name;
+
+                    if(fullname.contains(" ")){
+                        fullname = fullname.substring(0, fullname.indexOf(" "));
+                    }
+
+                    user_name.setText(fullname+" !");
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Cannot fetch data", Toast.LENGTH_SHORT).show();
             }
         });
     }

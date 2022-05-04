@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment {
     Button button;
     LinearLayout linearLayout;
     TextView textView;
+    TextView avg_text;
     PieChart pieChart;
     TextView time_count;
     ProgressDialog progressDialog;
@@ -69,6 +70,7 @@ public class HomeFragment extends Fragment {
         
         
         showProgressDialog();
+        avg_text = view.findViewById(R.id.avg_sleep_text);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -423,6 +425,20 @@ public class HomeFragment extends Fragment {
                 pieChart.startAnimation();
 
                 progressDialog.dismiss();
+
+
+                double hello = sum*86400*0.01;
+
+                double Hours = hello / (60 * 60 * 1000) % 24;
+                double Minutes = hello/ (60 * 1000) % 60;
+
+                avg_text.setText("Avg Sleep: "+Math.round(Hours * 100.0) / 100.0+" hrs "+Math.round(Minutes * 100.0) / 100.0+" mnts.");
+
+
+
+
+
+
 
             }
 

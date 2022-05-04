@@ -34,13 +34,14 @@
             android:text="Welcome"/>
 
         <TextView
+            android:id="@+id/stats_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textStyle="bold"
             android:textColor="#182848"
             android:textSize="24sp"
-            android:text="Amit !"/>
+            android:text=""/>
 
 
 

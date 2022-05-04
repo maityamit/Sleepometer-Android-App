@@ -31,13 +31,14 @@
             android:text="Welcome"/>
 
         <TextView
+            android:id="@+id/settings_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textStyle="bold"
             android:textColor="#182848"
             android:textSize="24sp"
-            android:text="Amit !"/>
+            android:text=""/>
 
 
 
@@ -161,11 +162,13 @@
 
 
         <ImageView
+            android:id="@+id/linkedin"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/linkedin"/>
 
         <ImageView
+            android:id="@+id/github"
             android:layout_width="40dp"
             android:layout_marginStart="5dp"
             android:layout_height="40dp"
