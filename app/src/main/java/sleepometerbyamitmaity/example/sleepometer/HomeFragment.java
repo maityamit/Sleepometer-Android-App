@@ -417,7 +417,6 @@ public class HomeFragment extends Fragment {
                 for(int i=0;i<7;i++){
                     sum+= Float.parseFloat(sp[i]);
                 }
-
                 sum = (float) sum/7;
                 pieChart.addPieSlice(new PieModel("", sum, Color.parseColor("#0F9D58")));
                 pieChart.addPieSlice(new PieModel("", (100-sum), Color.parseColor("#DB4437")));
@@ -427,12 +426,12 @@ public class HomeFragment extends Fragment {
                 progressDialog.dismiss();
 
 
-                double hello = sum*86400*0.01;
+                float hello = (sum*24)/100;
+                int Hours = (int) hello;
+                int temp_mnt = (int) ((hello - Math.floor( hello))*100) ;
+                int Minutes = (temp_mnt*60)/100;
 
-                double Hours = hello / (60 * 60 * 1000) % 24;
-                double Minutes = hello/ (60 * 1000) % 60;
-
-                avg_text.setText("Avg Sleep: "+Math.round(Hours * 100.0) / 100.0+" hrs "+Math.round(Minutes * 100.0) / 100.0+" mnts.");
+                avg_text.setText("Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.");
 
 
 

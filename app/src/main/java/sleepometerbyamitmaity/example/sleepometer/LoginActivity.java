@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                     HashMap userMap=new HashMap();
                     userMap.put("name",userName);
                     userMap.put("email",email);
-                    userMap.put("7days","00;00;00;00;00;00;0");
+                    userMap.put("7days","33;33;33;33;33;33;33");
                     userMap.put("Win","");
                     if(!userMap.containsKey("user_image")) userMap.put("user_image",st);
                     //userMap.put("Password",passwd);

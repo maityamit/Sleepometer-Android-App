@@ -102,7 +102,10 @@ public class StatsFragment extends Fragment {
                     double Hours = diff / (60 * 60 * 1000) % 24;
                     double Minutes = diff / (60 * 1000) % 60;
 
-                    String hello = Math.round(Hours * 100.0) / 100.0 + " hrs "+ Math.round(Minutes * 100.0) / 100.0 + " mnts.";
+                    double temp_h = (int) Hours;
+                    double temp_m = (int) Minutes;
+
+                    String hello = temp_h+ " hrs "+ temp_m + " mnts.";
 
 
 
