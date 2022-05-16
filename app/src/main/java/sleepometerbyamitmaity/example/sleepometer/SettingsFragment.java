@@ -91,7 +91,7 @@ public class SettingsFragment extends Fragment {
 
 
                         String send = "Hi , I would like to invite you to install this app called Sleepometer \n" + "https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer";
-                        Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.logo);
+                        Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.banner);
                         Intent share = new Intent(Intent.ACTION_SEND);
                         share.setType("image/jpeg");
                         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
