@@ -28,6 +28,8 @@ import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
+import sharelayoutbyamit.example.sharelibrary.ShareLayout;
+
 public class SettingsFragment extends Fragment {
 
     TextView user_name;
@@ -100,6 +102,9 @@ public class SettingsFragment extends Fragment {
                         String path = MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), b, "Invite", null);
                         Uri imageUri =  Uri.parse(path);
                         share.putExtra(Intent.EXTRA_STREAM, imageUri);
+
+
+
             }
         });
 

@@ -9,11 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Sleepometer">
+        android:theme="@style/Theme.Sleepometer"
+        android:exported="true">
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreenActivity" >
-
+        <activity android:name=".SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

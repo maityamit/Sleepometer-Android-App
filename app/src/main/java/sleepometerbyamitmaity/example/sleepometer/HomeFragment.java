@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
 
 
     CircleImageView circleImageView;
-    ExtendedFloatingActionButton extendedFloatingActionButton;
+    Button extendedFloatingActionButton;
 
 
     String userID;
@@ -205,6 +205,7 @@ public class HomeFragment extends Fragment {
                             longg = longg * 60 *1000;
                             String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
                             upDateWinNode(longg,today_datee);
+                            Toast.makeText(getContext(), "Done. ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })

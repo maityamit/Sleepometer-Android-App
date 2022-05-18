@@ -138,7 +138,7 @@
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_sleep_extra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
