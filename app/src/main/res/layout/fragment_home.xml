@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +7,12 @@
     android:orientation="vertical"
     android:background="@drawable/background_app"
     tools:context=".HomeFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
 
@@ -63,8 +69,6 @@
 
 
     </RelativeLayout>
-
-
     <org.eazegraph.lib.charts.PieChart
         android:id="@+id/piechart"
         android:layout_width="200dp"
@@ -73,7 +77,6 @@
         android:layout_gravity="center_horizontal"
         android:padding="8dp"
         app:egLegendTextSize="18sp"/>
-
     <TextView
         android:id="@+id/avg_sleep_text"
         android:layout_width="wrap_content"
@@ -84,11 +87,6 @@
         android:textSize="17sp"
         android:layout_marginBottom="40dp"
         android:layout_gravity="center_horizontal"/>
-
-
-
-
-
     <LinearLayout
         android:id="@+id/active_sleep_layout"
         android:layout_width="match_parent"
@@ -125,11 +123,6 @@
 
 
     </LinearLayout>
-
-
-
-
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/start_button"
         android:layout_width="250dp"
@@ -143,6 +136,22 @@
         android:text="Start Sleep"
         android:background="@drawable/button_colour"/>
 
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Miss Click ?"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_colour"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
 
 
 
@@ -150,4 +159,5 @@
 
 
 
-</LinearLayout>
+
+</RelativeLayout>
