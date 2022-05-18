@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
 
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.charts.ValueLineChart;
@@ -47,6 +50,7 @@ public class HomeFragment extends Fragment {
 
 
     CircleImageView circleImageView;
+    ExtendedFloatingActionButton extendedFloatingActionButton;
 
 
     String userID;
@@ -71,6 +75,7 @@ public class HomeFragment extends Fragment {
         
         showProgressDialog();
         avg_text = view.findViewById(R.id.avg_sleep_text);
+        extendedFloatingActionButton = view.findViewById(R.id.add_sleep_extra);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -85,6 +90,12 @@ public class HomeFragment extends Fragment {
         Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
 
         Graph();
+        extendedFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExtraSleepAddFunction();
+            }
+        });
 
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -164,6 +175,43 @@ public class HomeFragment extends Fragment {
 
 
         return  view;
+
+    }
+
+    private void ExtraSleepAddFunction() {
+
+
+        new LovelyTextInputDialog(getContext(), R.style.EditTextTintTheme)
+                .setTopColorRes(R.color.purple_200)
+                .setTitle("Missed to Click Button ?")
+                .setMessage("How many minutes you sleep ?")
+                .setInputType(InputType.TYPE_CLASS_NUMBER)
+                .setIcon(R.drawable.ic_baseline_edit_24)
+                .setInputFilter("Wrong Input, please try again!", new LovelyTextInputDialog.TextFilter() {
+                    @Override
+                    public boolean check(String text) {
+                        return text.matches("\\w+");
+                    }
+                })
+                .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
+                    @Override
+                    public void onTextInputConfirmed(String text) {
+                        String myText = text; //Saving Entered name in String
+                        int Days = Integer.parseInt(myText);
+                        if(myText.isEmpty())
+                            Toast.makeText(getContext(), "Please input minitus", Toast.LENGTH_SHORT).show();
+                        else {
+                            long longg = Long.parseLong(myText) ;
+                            longg = longg * 60 *1000;
+                            String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
+                            upDateWinNode(longg,today_datee);
+                        }
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .show();
+
+
 
     }
 

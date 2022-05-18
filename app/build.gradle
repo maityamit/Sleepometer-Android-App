@@ -44,6 +44,7 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'sun.bob:mcalendarview:1.0.0'
+    implementation 'com.yarolegovich:lovely-dialog:1.1.1'
 
 
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
