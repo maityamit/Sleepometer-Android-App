@@ -22,7 +22,7 @@
 
 <h1 align=center> Project Participated </h1>
  <p align="center">
-  <a href="https://github.com/maityamit"><img src="https://raw.githubusercontent.com/maityamit/Tracky-Track-your-goals-or-targets/master/External%20Resources/jwoc.jpg" width="50%" /></a>
+  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="60%" /></a>
   
 
 <h1 align=center> Project Admin  🤵 </h1>
