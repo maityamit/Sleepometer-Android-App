@@ -1,0 +1,37 @@
+[
+  {
+    "name": "good first issue",
+    "description": "This issue is good for first timers",
+    "color": "7057ff"
+  },
+  {
+    "name": "help wanted",
+    "description": "This issue needs help ! Please help if possible !",
+    "color": "008672"
+  },
+  {
+    "name": "Level-3",
+    "description": "Points will be: 20",
+    "color": "f90716"
+  },
+  {
+    "name": "Level-2",
+    "description": "Points will be: 10",
+    "color": "ffe400"
+  },
+  {
+    "name": "Level-1",
+    "description": "Points will be: 5",
+    "color": "28ffbf"
+  },
+  {
+    "name": "HCSOC22'",
+    "description": "This issue/pull request will be considered for HCSOC22'.",
+    "color": "1d4cb0"
+  },
+  {
+    "name": "🤩 Up for Grab",
+    "description": "This issue is not assigned ! Grab It !",
+    "color": "bf00ff"
+  }
+]
