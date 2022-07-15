@@ -89,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                 String st = String.valueOf(personPhoto);
 
 
-
                 firebaseAuthWithGoogle(acct,personName,personEmail,st);
 
 

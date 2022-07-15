@@ -4,58 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background_app"
+    android:orientation="vertical"
     tools:context=".ProfileActivity">
-
-
-
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_margin="20dp"
+        android:text="Profile"
         android:textColor="#434343"
         android:textSize="28sp"
-        android:text="Profile"/>
-
+        android:textStyle="bold" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:elevation="15sp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/profile"/>
-
-
-
+        android:elevation="15sp"
+        android:src="@drawable/profile" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_marginTop="20dp"
-        android:elevation="15sp"
         android:layout_marginStart="15sp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15sp"
-        android:background="@drawable/input_background">
-
+        android:background="@drawable/input_background"
+        android:elevation="15sp">
 
 
         <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="User Name"
-            android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_centerInParent="true"/>
-
-
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -64,57 +54,38 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_marginTop="15dp"
-        android:elevation="15sp"
         android:layout_marginStart="15sp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="15sp"
-        android:background="@drawable/input_background">
-
+        android:background="@drawable/input_background"
+        android:elevation="15sp">
 
 
         <TextView
             android:id="@+id/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="User Email"
-            android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_centerInParent="true"/>
-
-
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
-
-
-
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logout"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Logout"
-        android:layout_marginTop="40dp"
-        android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
-        android:elevation="10dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="40dp"
         android:background="@drawable/input_background"
-        android:backgroundTint="#FF5454"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
+        android:backgroundTint="#FF5454"
+        android:elevation="10dp"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
 
 </LinearLayout>
