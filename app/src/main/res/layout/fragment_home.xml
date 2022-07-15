@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@drawable/window_background"
+    android:orientation="vertical"
     tools:context=".HomeFragment">
 
 
@@ -15,126 +15,123 @@
         android:orientation="vertical">
 
 
-
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="horizontal">
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_margin="20dp"
             android:orientation="horizontal">
 
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
 
+
+                <TextView
+                    android:id="@+id/welcome_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/main_act_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text=""
+                    android:textColor="#182848"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_profile_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_baseline_person_24"
+                app:civ_border_color="#182848"
+                app:civ_border_width="2dp" />
+
+
+        </RelativeLayout>
+
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/piechart"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            app:egLegendTextSize="18sp" />
 
         <TextView
-            android:id="@+id/welcome_text"
+            android:id="@+id/avg_sleep_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:text="Avg Sleep : "
+            android:textColor="#182848"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/main_act_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textStyle="bold"
-            android:textColor="#182848"
-            android:textSize="24sp"
-            android:text=""/>
+        <LinearLayout
+            android:id="@+id/active_sleep_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/active_background"
+            android:elevation="8dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:text="Active Sleep :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/time_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/amaranth"
+                android:text="2 hrs 3mnts 3sec"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_profile_image"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_alignParentEnd="true"
-            app:civ_border_color="#182848"
-            android:layout_centerVertical="true"
-            app:civ_border_width="2dp"
-            android:layout_gravity="end"
-            android:src="@drawable/ic_baseline_person_24" />
-
-
-    </RelativeLayout>
-    <org.eazegraph.lib.charts.PieChart
-        android:id="@+id/piechart"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:padding="8dp"
-        app:egLegendTextSize="18sp"/>
-    <TextView
-        android:id="@+id/avg_sleep_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Avg Sleep : "
-        android:textColor="#182848"
-        android:textStyle="bold"
-        android:textSize="17sp"
-        android:layout_marginBottom="40dp"
-        android:layout_gravity="center_horizontal"/>
-    <LinearLayout
-        android:id="@+id/active_sleep_layout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="20dp"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        android:background="@drawable/active_background">
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start_button"
+            android:layout_width="250dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_colour"
+            android:elevation="25dp"
+            android:text="Start Sleep"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            android:text="Active Sleep :"/>
-
-        <TextView
-            android:id="@+id/time_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:fontFamily="@font/amaranth"
-            android:textStyle="bold"
-            android:layout_marginTop="4dp"
-            android:text="2 hrs 3mnts 3sec"/>
-
-
-
-    </LinearLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/start_button"
-        android:layout_width="250dp"
-        android:layout_height="65dp"
-        android:layout_gravity="center_horizontal"
-        android:elevation="25dp"
-        android:textSize="25sp"
-        android:layout_marginTop="40dp"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:text="Start Sleep"
-        android:background="@drawable/button_colour"/>
+            android:textSize="25sp" />
 
     </LinearLayout>
 
@@ -142,23 +139,17 @@
         android:id="@+id/add_sleep_extra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"
-        android:text="Miss Click ?"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_colour"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/button_colour"
+        android:text="Miss Click ?"
         android:textAllCaps="false"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
-
-
-
-
-
-
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
 
 </RelativeLayout>
