@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_app"
+    android:background="@drawable/window_background"
     tools:context=".SplashScreenActivity">
-
 
 
     <LinearLayout
@@ -19,7 +18,7 @@
         <ImageView
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,11 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="4dp"
-            android:textStyle="bold"
             android:fontFamily="@font/architects_daughter"
             android:text="track your sleep"
-            android:textColor="#005BC7" />
-
+            android:textColor="#005BC7"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
