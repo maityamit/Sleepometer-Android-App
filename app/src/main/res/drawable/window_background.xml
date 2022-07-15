@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    >
+
+    <solid android:color= "#D1DFD7"/>
+
+    <gradient
+        android:type="sweep"
+        android:gradientRadius="@dimen/bannerWeightSum"
+        android:startColor="#4B9FFA"
+        android:endColor="#218CFE">
+    </gradient>
+
+</shape>
