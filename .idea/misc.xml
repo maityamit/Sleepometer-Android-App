@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/drawable/background_app.xml" value="0.1145" />
         <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/drawable/window_background.xml" value="0.163" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/activity_login.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/activity_main.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/activity_profile.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/activity_splash_screen.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/fragment_home.xml" value="0.12075088787417554" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/fragment_settings.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/fragment_stats.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/vicky/OneDrive/Documents/soc/Sleepometer-Android-App/app/src/main/res/layout/progress_diaglog.xml" value="0.24791666666666667" />
       </map>
     </option>
   </component>

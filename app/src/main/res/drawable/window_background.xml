@@ -6,10 +6,10 @@
     <solid android:color= "#D1DFD7"/>
 
     <gradient
-        android:type="sweep"
+        android:type="radial"
         android:gradientRadius="@dimen/bannerWeightSum"
-        android:startColor="#4B9FFA"
-        android:endColor="#218CFE">
+        android:endColor="#3591F3"
+        android:startColor="#66A9F1">
     </gradient>
 
 </shape>
