@@ -38,13 +38,26 @@
 <br>
 
 <h1 align=center> Projects Contributors ✨ </h1>
+
+  
+
+<table>
+  <p align="center">
+  <tr>
+    <td align="center"><a href="https://github.com/afreenabegum"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</h2>#9 - HSOC22-Level-1</td>
+
+ </tr>
+    
+  </p>
+  </table>
+
+
+
+<br>
   
   
-  <br>
-  
-  
-  <a href="https://github.com/maityamit/Tracky-Track-your-goals-or-targets/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=maityamit/Sleepometer-Android-App" />
+<a href="https://github.com/maityamit/Tracky-Track-your-goals-or-targets/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=maityamit/Sleepometer-Android-App" />
 </a>
   
   <br>
