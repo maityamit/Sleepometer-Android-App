@@ -44,7 +44,7 @@
 <table>
   <p align="center">
   <tr>
-    <td align="center"><a href="https://github.com/afreenabegum"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</h2>#9 - HSOC22-Level-1<br>#11 - HSOC22-Level-2</td>
+    <td align="center"><a href="https://github.com/afreenabegum"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</h2>#9 - HSOC22-Level-1<br>#11 - HSOC22-Level-2<br>#12 - HSOC22-Level-1</td>
 
  </tr>
     
