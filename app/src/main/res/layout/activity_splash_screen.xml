@@ -16,11 +16,13 @@
 
 
         <ImageView
+            android:id="@+id/splashIcon"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:src="@drawable/logo" />
 
         <TextView
+            android:id="@+id/splashAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -32,13 +34,14 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/splashSubText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/architects_daughter"
             android:text="track your sleep"
-            android:textColor="#005BC7"
+            android:textColor="#043F85"
             android:textStyle="bold" />
 
 
