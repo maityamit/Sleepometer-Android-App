@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,10 +8,15 @@
     android:orientation="vertical"
     tools:context=".HomeFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/first_container"
         android:orientation="vertical">
 
 
@@ -135,6 +140,282 @@
 
     </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/element_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/first_container"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ele_container_1"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:background="@drawable/anu_main_activity_border"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sleepScore"
+                            android:padding="10dp"
+                            android:text="Sleep Score"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingBottom="10dp"
+                            android:id="@+id/sleepScore_data"
+                            android:layout_below="@id/sleepScore"
+                            android:text="80 "
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/sleepScore_data"
+                            android:layout_below="@id/sleepScore"
+                            android:text="%"
+                            android:textColor="@color/anu_grey"
+                            android:textSize="20sp" />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:background="@drawable/anu_main_activity_border"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/avg_sleep_duration"
+                            android:padding="10dp"
+                            android:text="Avg Sleep Duration"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/avg_sleep_duration"
+                            >
+
+                            <TextView
+                                android:id="@+id/avg_sleep_duration_hrs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/avg_sleep_duration"
+                                android:paddingLeft="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="80 "
+                                android:textColor="@color/white"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/avg_sleep_duration_hrsHint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/avg_sleep_duration"
+                                android:layout_toRightOf="@id/avg_sleep_duration"
+                                android:text="hrs"
+                                android:textColor="@color/anu_grey"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/avg_sleep_duration_minutes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/avg_sleep_duration"
+                                android:paddingLeft="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="20 "
+                                android:textColor="@color/white"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/avg_sleep_duration_minutesHint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/avg_sleep_duration_minutes"
+                                android:layout_below="@id/avg_sleep_duration"
+                                android:text="mnts"
+                                android:textColor="@color/anu_grey"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ele_container_2"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:background="@drawable/anu_main_activity_border"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/SleepAtTime"
+                            android:padding="10dp"
+                            android:text="Sleep at Time"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingBottom="10dp"
+                            android:id="@+id/SleepAtTime_time"
+                            android:layout_below="@id/SleepAtTime"
+                            android:text="22:00 "
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/SleepAtTime_amOrpm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/SleepAtTime_time"
+                            android:layout_below="@id/SleepAtTime"
+                            android:text="pm"
+                            android:textColor="@color/anu_grey"
+                            android:textSize="20sp" />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:background="@drawable/anu_main_activity_border"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/wakeUpTimeHint"
+                            android:padding="10dp"
+                            android:text="Wake up time"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/wakeUpTimeHint"
+                            >
+
+                            <TextView
+                                android:id="@+id/wakeUpTimeHint_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/wakeUpTimeHint"
+                                android:paddingLeft="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="06:00 "
+                                android:textColor="@color/white"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/wakeUpTimeHint_amOrpm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/avg_sleep_duration"
+                                android:layout_toRightOf="@id/avg_sleep_duration"
+                                android:text="am"
+                                android:textColor="@color/anu_grey"
+                                android:textSize="20sp" />
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_sleep_extra"
         android:layout_width="wrap_content"
@@ -143,6 +424,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_below="@id/element_container"
         android:background="@drawable/button_colour"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -151,5 +433,5 @@
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
