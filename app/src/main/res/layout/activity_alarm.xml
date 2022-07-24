@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--Added Time picker just to pick the alarm time-->
+    <!--gravity is aligned to center-->
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <!--Added Toggle Button to set the alarm on or off-->
+    <!--ByDefault toggleButton is set to false-->
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:layout_margin="150dp"
+        android:background="@drawable/button_colour"
+        android:checked="false"
+        android:onClick="OnToggleClicked"
+        android:textColor="#fff"
+        android:textSize="25sp" />
+
+    <!--"OnToggleClicked" method will be implemented in MainActivity.java -->
+
+</LinearLayout>
