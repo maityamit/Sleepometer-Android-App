@@ -61,8 +61,6 @@ public class HomeFragment extends Fragment {
     Button button;
     LinearLayout linearLayout;
     TextView textView;
-    TextView avg_text;
-    PieChart pieChart;
     TextView time_count;
     ProgressDialog progressDialog;
     DatabaseReference Rootref;
@@ -76,7 +74,6 @@ public class HomeFragment extends Fragment {
         
         
         showProgressDialog();
-        avg_text = view.findViewById(R.id.avg_sleep_text);
         extendedFloatingActionButton = view.findViewById(R.id.add_sleep_extra);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -89,11 +86,8 @@ public class HomeFragment extends Fragment {
 
         time_count = view.findViewById(R.id.time_count);
 
-        pieChart = (PieChart) view.findViewById(R.id.piechart);
-
         Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
 
-        Graph();
         extendedFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -463,6 +457,8 @@ public class HomeFragment extends Fragment {
 
 
 
+/*
+
 
     public void Graph() {
 
@@ -508,6 +504,8 @@ public class HomeFragment extends Fragment {
         });
     }
 
+
+*/
 
 
     private void showProgressDialog() {
