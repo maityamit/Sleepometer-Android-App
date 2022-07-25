@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +53,7 @@ public class HomeFragment extends Fragment {
     CircleImageView circleImageView;
     Button extendedFloatingActionButton;
 
+    ImageButton btalarm;
 
     String userID;
     SharedPreferences sharedPreferences;
@@ -82,6 +84,8 @@ public class HomeFragment extends Fragment {
         textView = view.findViewById(R.id.main_act_user_name);
         button = view.findViewById(R.id.start_button);
         linearLayout = view.findViewById(R.id.active_sleep_layout);
+
+        btalarm = view.findViewById(R.id.alarm_imageView);
 
         time_count = view.findViewById(R.id.time_count);
 
@@ -114,6 +118,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        btalarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),Alarm.class);
+                startActivity(intent);
+            }
+        });
 
         getOperationLocally();
 

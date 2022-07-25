@@ -56,6 +56,17 @@
 
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/alarm_imageView"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="155dp"
+                android:layout_marginEnd="12dp"
+                android:layout_toStartOf="@+id/user_profile_image"
+                android:layout_toEndOf="@+id/main_act_user_name"
+                android:background="@drawable/clock"
+                tools:ignore="NotSibling" />
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/user_profile_image"
                 android:layout_width="45dp"
