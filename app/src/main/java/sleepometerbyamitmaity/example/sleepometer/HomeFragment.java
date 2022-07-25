@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +54,7 @@ public class HomeFragment extends Fragment {
     CircleImageView circleImageView;
     Button extendedFloatingActionButton;
 
-    ImageButton btalarm;
+    ImageView btalarm;
 
     String userID;
     SharedPreferences sharedPreferences;
@@ -72,8 +73,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
         
-        
-        showProgressDialog();
+
         extendedFloatingActionButton = view.findViewById(R.id.add_sleep_extra);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -456,12 +456,7 @@ public class HomeFragment extends Fragment {
 
 
 
-
-/*
-
-
-    public void Graph() {
-
+    private void avg_sleep(){
         Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -473,13 +468,10 @@ public class HomeFragment extends Fragment {
                 for(int i=0;i<7;i++){
                     sum+= Float.parseFloat(sp[i]);
                 }
+
+                //this is the percentage
                 sum = (float) sum/7;
-                pieChart.addPieSlice(new PieModel("", sum, Color.parseColor("#0F9D58")));
-                pieChart.addPieSlice(new PieModel("", (100-sum), Color.parseColor("#DB4437")));
 
-                pieChart.startAnimation();
-
-                progressDialog.dismiss();
 
 
                 float hello = (sum*24)/100;
@@ -487,12 +479,7 @@ public class HomeFragment extends Fragment {
                 int temp_mnt = (int) ((hello - Math.floor( hello))*100) ;
                 int Minutes = (temp_mnt*60)/100;
 
-                avg_text.setText("Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.");
-
-
-
-
-
+                String avg_sleep = "Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.";
 
 
             }
@@ -503,9 +490,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
-
-*/
 
 
     private void showProgressDialog() {
