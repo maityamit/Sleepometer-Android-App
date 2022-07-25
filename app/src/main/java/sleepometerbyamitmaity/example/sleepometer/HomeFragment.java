@@ -456,6 +456,8 @@ public class HomeFragment extends Fragment {
 
 
 
+
+    //Avg Function
     private void avg_sleep(){
         Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
