@@ -45,6 +45,7 @@
 <tr>
 <td align="center"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</h2>#9 - HSOC22-Level-1<br>#11 - HSOC22-Level-2<br>#12 - HSOC22-Level-1</td>
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/97109151?v=4?s=100" width="120px;" alt=""/><br> <h2>Anurag shukla</h2>#13 - HSOC22-Level-2</td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/93531836?v=4?s=100" width="120px;" alt=""/><br> <h2>Joydeep Paul</h2>#14 - HSOC22-Level-3</td>
 
 </tr>
     
