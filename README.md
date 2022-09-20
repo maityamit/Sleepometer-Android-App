@@ -19,12 +19,6 @@
 3. Pie Chart, Line Chart 
 4. CalendarView
 
-
-<h1 align=center> Project Participated </h1>
- <p align="center">
-  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="60%" /></a>
-  
-
 <h1 align=center> Project Admin  🤵 </h1>
 
   <p align="center">
@@ -35,9 +29,19 @@
   <a href="maityamit308@gmail.com"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.instagram.com/amit_maity_2003/"><img src="https://img.shields.io/badge/instagram-%23D14836.svg?&style=for-the-badge&logo=instagram&logoColor=pink" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
+  
+<br>
+  
+<br>
+  
+<h1 align=center> Past Project Participated </h1>
+ <p align="center">
+  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="40%" /></a>
+  
+
 <br>
 
-<h1 align=center> Projects Contributors ✨ </h1>
+<h1 align=center>Past Projects Contributors ✨ </h1>
 
   
 
