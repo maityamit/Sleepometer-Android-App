@@ -112,25 +112,25 @@
 
 
                         <TextView
+                            android:id="@+id/sleepScore"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/sleepScore"
                             android:padding="10dp"
                             android:text="Sleep Score"
                             android:textColor="#AAA9A9"
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/sleepScore_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_below="@id/sleepScore"
                             android:paddingLeft="10dp"
                             android:paddingBottom="10dp"
-                            android:textStyle="bold"
-                            android:id="@+id/sleepScore_data"
-                            android:layout_below="@id/sleepScore"
                             android:text="80 "
                             android:textColor="@color/white"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
