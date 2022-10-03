@@ -1,6 +1,6 @@
 # Sleepometer 😴 Android App 
 
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/android/android-plain.svg" alt="Android" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank">  
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/>  <a href="https://www.java.com" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/android/android-plain.svg" alt="Android" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank">  
   
   
 ## 🔗 Download the App 
@@ -25,7 +25,7 @@
   <a href="https://github.com/maityamit"><img src="https://avatars.githubusercontent.com/u/74618071?v=4" width="11%" /></a>
 
   <p align="center">
-  <a target="_blank"href="https://www.linkedin.com/in/maityamit/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a target="_blank" href="https://www.linkedin.com/in/maityamit/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="maityamit308@gmail.com"><img src="https://img.shields.io/badge/gmail-%23D14836.svg?&style=for-the-badge&logo=gmail&logoColor=white" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.instagram.com/amit_maity_2003/"><img src="https://img.shields.io/badge/instagram-%23D14836.svg?&style=for-the-badge&logo=instagram&logoColor=pink" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
@@ -54,9 +54,9 @@
 
 <table>
 <tr>
-<td align="center"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</td>
-<td align="center"> <img src="https://avatars.githubusercontent.com/u/97109151?v=4?s=100" width="120px;" alt=""/><br> <h2>Anurag shukla</td>
-<td align="center"> <img src="https://avatars.githubusercontent.com/u/93531836?v=4?s=100" width="120px;" alt=""/><br> <h2>Joydeep Paul</td>
+<td align="center"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/97109151?v=4?s=100" width="120px;" alt=""/><br> <h2>Anurag shukla</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/93531836?v=4?s=100" width="120px;" alt=""/><br> <h2>Joydeep Paul</h2></td>
 
 </tr>
     
@@ -72,6 +72,7 @@
 </a>
   
   <br>
+</a>
   
   ## 📸 Screenshots
  

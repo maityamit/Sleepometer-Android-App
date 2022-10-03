@@ -133,11 +133,23 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/sleepScore_data_unit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@id/sleepScore_data"
                             android:layout_below="@id/sleepScore"
                             android:text="%"
+                            android:textColor="#AAA9A9"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/sleepScore_data_emoji"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/sleepScore"
+                            android:layout_toRightOf="@id/sleepScore_data_unit"
+                            android:text="😴"
                             android:textColor="#AAA9A9"
                             android:textSize="20sp" />
 

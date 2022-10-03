@@ -57,6 +57,7 @@ public class HomeFragment extends Fragment {
     ImageView btalarm;
 
     String userID;
+    TextView emoji;
     SharedPreferences sharedPreferences;
     DatabaseReference reference;
     Button button;
@@ -81,6 +82,8 @@ public class HomeFragment extends Fragment {
         textView = view.findViewById(R.id.main_act_user_name);
         button = view.findViewById(R.id.start_button);
         linearLayout = view.findViewById(R.id.active_sleep_layout);
+
+        emoji= view.findViewById(R.id.sleepScore_data_emoji);
 
         btalarm = view.findViewById(R.id.alarm_imageView);
 
@@ -472,16 +475,30 @@ public class HomeFragment extends Fragment {
                 }
 
                 //this is the percentage
+
                 sum = (float) sum/7;
+                String avg='';
+                String reaction='';
 
-
+                if (0<= sum && sum <=20){
+                    reaction="😴"; 
+                }else if (20 < sum && sum <= 40){
+                    reaction="😪";
+                }else if (40 < sum && sum <= 60){
+                    reaction="😐";
+                }else if (60 < sum && sum <= 80){
+                    reaction="😊";
+                }else if (80< sum && sum <= 100){
+                    reaction="😁";
+                }
+                emoji.setText(reaction);
 
                 float hello = (sum*24)/100;
                 int Hours = (int) hello;
                 int temp_mnt = (int) ((hello - Math.floor( hello))*100) ;
                 int Minutes = (temp_mnt*60)/100;
 
-                String avg_sleep = "Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.";
+                String avgsleep = "Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.";
 
 
             }
