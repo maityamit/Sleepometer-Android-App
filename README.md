@@ -38,7 +38,18 @@
   
 
 <br>
+
+   <h1 align=center>Current Projects Contributors ✨ </h1>
+
   
+
+<table>
+<tr>
+<td align="center"><img src="https://avatars.githubusercontent.com/u/86847380?v=4" width="120px;" alt=""/><br><h2>Anjali</h2></td>
+  </tr>
+  </table>
+   
+   
 <br>
   
 <h1 align=center> Past Project Participated </h1>
