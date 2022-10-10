@@ -1,5 +1,7 @@
 package sleepometerbyamitmaity.example.sleepometer;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.text.InputType;
@@ -68,6 +71,7 @@ public class HomeFragment extends Fragment {
     DatabaseReference Rootref;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -96,6 +100,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 ExtraSleepAddFunction();
             }
+        });
+        view.findViewById(R.id.sleepScore_info).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog();
+                    }
         });
 
 
@@ -457,7 +467,14 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
+    private void showDialog(){
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Title")
+                .setMessage("Body")
+                .setNegativeButton("Ok",null)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .show();
+    }
 
 
     //Avg Function
@@ -477,8 +494,8 @@ public class HomeFragment extends Fragment {
                 //this is the percentage
 
                 sum = (float) sum/7;
-                String avg='';
-                String reaction='';
+                String avg="";
+                String reaction="";
 
                 if (0<= sum && sum <=20){
                     reaction="😴"; 
