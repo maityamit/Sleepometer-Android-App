@@ -113,12 +113,22 @@
 
                         <TextView
                             android:id="@+id/sleepScore"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingEnd="16.dp"
                             android:padding="10dp"
                             android:text="Sleep Score"
                             android:textColor="#AAA9A9"
                             android:textSize="15sp" />
+                        <ImageView
+                            android:id="@+id/sleepScore_info"
+                            android:layout_alignEnd="@id/sleepScore"
+                            android:layout_alignTop="@id/sleepScore"
+                            android:layout_alignBottom="@id/sleepScore"
+                            android:contentDescription=""
+                            android:src="@drawable/ic_baseline_info_24"
+                            android:layout_width="14.dp"
+                            android:layout_height="14.dp"/>
 
                         <TextView
                             android:id="@+id/sleepScore_data"
