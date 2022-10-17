@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.provider.AlarmClock;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,8 +116,9 @@ public class HomeFragment extends Fragment {
         btalarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),Alarm.class);
-                startActivity(intent);
+                Intent openClockIntent = new Intent(AlarmClock.ACTION_SET_ALARM);
+                openClockIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(openClockIntent);
             }
         });
 
