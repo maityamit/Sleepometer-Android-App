@@ -47,10 +47,35 @@ git pull upstream main
 ```
 git checkout -b <YOUR_BRANCH_NAME>
 ```
+# Setup firebase configuration
 
-11. Perform your desired changes to the code base.
+11. First update your Android studio to the latest version.
 
-12. Check your changes.
+12. To setup firebase for development on your local system, comment out all the firebase dependencies in the app level build.gradle file and run gradle sync.
+
+13. Create a project on [Firebase](https://console.firebase.google.com/) and add the package name of the project sleepometerbyamitmaity.example.sleepometer
+
+14. Register your app with firebase.
+
+15. Enable Google Sign in authentication and  Realtime Database in your Firebase project.
+
+16. Add your SHA1 and SHA256 fingerprints to the app in the firebase project settings.
+- For windows
+```
+keytool -list -v -keystore C:\Users\your_user_name\.android\debug.keystore -alias androiddebugkey -storepass android -keypass android
+```
+- For mac
+```
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+```
+
+18. Download the google-services.json file in your firebase project and replace it with the google-services.json present in the cloned project.
+
+19. Uncomment all the firebase dependencies and run gradle sync again.
+
+20. Perform your desired changes to the code base.
+
+21. Check your changes.
 
 ```
 git status
@@ -60,29 +85,29 @@ git status
 git  diff
 ```
 
-13. Stage your changes.
+21. Stage your changes.
 
 ```
 git add . <\files_that_you_made_changes>
 ```
 
-14. Commit your changes.
+22. Commit your changes.
 
 ```
 git commit -m "relavant message"
 ```
 
-15. Push the committed changes in your feature branch to your remote repository.
+23. Push the committed changes in your feature branch to your remote repository.
 
 ```
 git push -u origin <your_branch_name>
 ```
 
-16. To create a pull request, click on `compare and pull requests`.
+24. To create a pull request, click on `compare and pull requests`.
 
-17. Add an appropriate title and description to your PR explaining your changes.
+25. Add an appropriate title and description to your PR explaining your changes.
 
-18. Click on `Create pull request`.
+26. Click on `Create pull request`.
 
-Congratulations🎉, you have made a PR to the FunwithPhysics.
+Congratulations🎉, you have made a PR to the Sleepometer-Android-App.
 Wait for your submission to be accepted and your PR to be merged by a maintainer.
