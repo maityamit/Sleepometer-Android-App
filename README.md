@@ -14,10 +14,10 @@
  ## 💡 Features Used
 
 1. Used Firebase Realtime Database to store data. 
-2. Used Google SignIn Auth
-3. Shared Preference for store temp data
-3. Pie Chart, Line Chart 
-4. CalendarView
+2. Used Google SignIn Auth.
+3. Shared Preference for store temp data.
+4. Pie Chart, Line Chart.
+5. CalendarView.
 
 <h1 align=center> Project Admin  🤵 </h1>
 
