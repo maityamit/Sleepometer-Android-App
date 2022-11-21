@@ -34,7 +34,6 @@
   
   <h1 align=center> ⭐ Project Participated </h1>
  <p align="center">
-  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/hacktoberfest.png" width="70%" /></a>
   
 
 <br>
@@ -43,11 +42,6 @@
 
   
 
-<table>
-<tr>
-<td align="center"><img src="https://avatars.githubusercontent.com/u/86847380?v=4" width="120px;" alt=""/><br><h2>Anjali</h2></td>
-  </tr>
-  </table>
    
    
 <br>
@@ -55,6 +49,7 @@
 <h1 align=center> Past Project Participated </h1>
  <p align="center">
   <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="40%" /></a>
+  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/hacktoberfest.png" width="40%" /></a>
   
 
 <br>
@@ -68,6 +63,7 @@
 <td align="center"><img src="https://avatars.githubusercontent.com/u/73611313?v=4?s=100" width="120px;" alt=""/><br><h2>Vikas Kumar</h2></td>
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/97109151?v=4?s=100" width="120px;" alt=""/><br> <h2>Anurag shukla</h2></td>
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/93531836?v=4?s=100" width="120px;" alt=""/><br> <h2>Joydeep Paul</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/86847380?v=4?s=100" width="120px;" alt=""/><br><h2>Anjali</h2></td>
 
 </tr>
     
