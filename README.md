@@ -64,6 +64,13 @@
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/97109151?v=4?s=100" width="120px;" alt=""/><br> <h2>Anurag shukla</h2></td>
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/93531836?v=4?s=100" width="120px;" alt=""/><br> <h2>Joydeep Paul</h2></td>
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/86847380?v=4?s=100" width="120px;" alt=""/><br><h2>Anjali</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/103691849?v=4?s=100" width="120px;" alt=""/><br><h2>MOHAMMAD KAIF</h2></td>
+
+</tr>
+
+<tr>
+<td align="center"><img src="https://avatars.githubusercontent.com/u/86477458?v=4?s=100" width="120px;" alt=""/><br><h2>Syed Quasim</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/51732590?v=4?s=100" width="120px;" alt=""/><br> <h2>Venkatesh Lingampally</h2></td>
 
 </tr>
     
