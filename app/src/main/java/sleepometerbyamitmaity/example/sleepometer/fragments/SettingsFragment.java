@@ -1,4 +1,4 @@
-package sleepometerbyamitmaity.example.sleepometer;
+package sleepometerbyamitmaity.example.sleepometer.fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,18 +23,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
-import sharelayoutbyamit.example.sharelibrary.ShareLayout;
+import sleepometerbyamitmaity.example.sleepometer.R;
+import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
 
 public class SettingsFragment extends Fragment {
 
     TextView user_name;
-    TextView rateus,share,feedback,privacy;
-    ImageView github,linkedin,project;
+    TextView rateus, share, feedback, privacy;
+    ImageView github, linkedin, project;
 
     String userID;
     DatabaseReference reference;
@@ -44,7 +44,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -65,8 +65,6 @@ public class SettingsFragment extends Fragment {
         dataRetriveFromFirebase();
 
 
-
-
         project.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,10 +78,10 @@ public class SettingsFragment extends Fragment {
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=maityamit308@gmail.com");
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto","maityamit308@gmail.com", null));
+                        "mailto", "maityamit308@gmail.com", null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Text");
-                startActivityForResult(Intent.createChooser(emailIntent, "Send email..."),0);
+                startActivityForResult(Intent.createChooser(emailIntent, "Send email..."), 0);
             }
         });
 
@@ -92,17 +90,16 @@ public class SettingsFragment extends Fragment {
             public void onClick(View view) {
 
 
-                        String send = "Hi , I would like to invite you to install this app called Sleepometer \n" + "https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer";
-                        Bitmap b = BitmapFactory.decodeResource(getResources(),R.drawable.banner);
-                        Intent share = new Intent(Intent.ACTION_SEND);
-                        share.setType("image/jpeg");
-                        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                        b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-                        share.putExtra(Intent.EXTRA_TEXT,send);
-                        String path = MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), b, "Invite", null);
-                        Uri imageUri =  Uri.parse(path);
-                        share.putExtra(Intent.EXTRA_STREAM, imageUri);
-
+                String send = "Hi , I would like to invite you to install this app called Sleepometer \n" + "https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer";
+                Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.banner);
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("image/jpeg");
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                share.putExtra(Intent.EXTRA_TEXT, send);
+                String path = MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), b, "Invite", null);
+                Uri imageUri = Uri.parse(path);
+                share.putExtra(Intent.EXTRA_STREAM, imageUri);
 
 
             }
@@ -142,7 +139,6 @@ public class SettingsFragment extends Fragment {
         });
 
 
-
         return view;
     }
 
@@ -156,11 +152,11 @@ public class SettingsFragment extends Fragment {
                 if (userprofile != null) {
                     String fullname = userprofile.name;
 
-                    if(fullname.contains(" ")){
+                    if (fullname.contains(" ")) {
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    user_name.setText(fullname+" !");
+                    user_name.setText(fullname + " !");
 
 
                 }

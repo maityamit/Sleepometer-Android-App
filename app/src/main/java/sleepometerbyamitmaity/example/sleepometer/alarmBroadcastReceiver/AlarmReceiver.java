@@ -1,4 +1,4 @@
-package sleepometerbyamitmaity.example.sleepometer;
+package sleepometerbyamitmaity.example.sleepometer.alarmBroadcastReceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

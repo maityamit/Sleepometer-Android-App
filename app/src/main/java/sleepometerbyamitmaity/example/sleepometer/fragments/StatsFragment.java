@@ -1,6 +1,5 @@
-package sleepometerbyamitmaity.example.sleepometer;
+package sleepometerbyamitmaity.example.sleepometer.fragments;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +27,8 @@ import org.eazegraph.lib.models.ValueLineSeries;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import sleepometerbyamitmaity.example.sleepometer.R;
+import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
 import sun.bob.mcalendarview.MCalendarView;
 import sun.bob.mcalendarview.MarkStyle;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
@@ -38,7 +38,7 @@ import sun.bob.mcalendarview.vo.DateData;
 public class StatsFragment extends Fragment {
 
 
-    DatabaseReference Rootref,HelloRef;
+    DatabaseReference Rootref, HelloRef;
     String userID;
     ValueLineChart mCubicValueLineChart;
     ArrayList<DateData> dataArrayList;
@@ -50,7 +50,7 @@ public class StatsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_stats, container, false);
+        View view = inflater.inflate(R.layout.fragment_stats, container, false);
 
         mCalendarView = view.findViewById(R.id.history_calendarView);
         user_name = view.findViewById(R.id.stats_name);
@@ -61,8 +61,8 @@ public class StatsFragment extends Fragment {
         mCubicValueLineChart = (ValueLineChart) view.findViewById(R.id.cubiclinechart);
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
-        Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
-        HelloRef = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID).child("Win");
+        Rootref = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        HelloRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("Win");
 
 
         Graph();
@@ -74,12 +74,12 @@ public class StatsFragment extends Fragment {
             @Override
             public void onDateClick(View view, DateData date) {
 
-                getAlertDialogBox(date.getDay(),date.getMonth(),date.getYear());
+                getAlertDialogBox(date.getDay(), date.getMonth(), date.getYear());
             }
         });
 
 
-        return  view;
+        return view;
 
     }
 
@@ -87,15 +87,15 @@ public class StatsFragment extends Fragment {
 
 
         String dayu = String.valueOf(day);
-        if(day<10){
-            dayu = "0"+dayu;
+        if (day < 10) {
+            dayu = "0" + dayu;
         }
 
-        String compare = dayu+"-"+month+"-"+year;
+        String compare = dayu + "-" + month + "-" + year;
         HelloRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child(compare).exists()){
+                if (snapshot.child(compare).exists()) {
                     String total = snapshot.child(compare).child("sleep").getValue().toString();
                     double diff = Double.parseDouble(total);
 
@@ -105,19 +105,18 @@ public class StatsFragment extends Fragment {
                     double temp_h = (int) Hours;
                     double temp_m = (int) Minutes;
 
-                    String hello = temp_h+ " hrs "+ temp_m + " mnts.";
+                    String hello = temp_h + " hrs " + temp_m + " mnts.";
 
 
-
-                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext(),R.style.AlertDialogTheme);
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext(), R.style.AlertDialogTheme);
                     builder.setTitle(compare);
                     builder.setIcon(R.drawable.logo);
                     builder.setMessage(hello);
-                    builder.setBackground(getResources().getDrawable(R.drawable.input_background , null));
+                    builder.setBackground(getResources().getDrawable(R.drawable.input_background, null));
                     builder.show();
 
 
-                }else{
+                } else {
                     Toast.makeText(getContext(), "Not Exist", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -129,7 +128,6 @@ public class StatsFragment extends Fragment {
         });
 
 
-
     }
 
     public void Graph() {
@@ -139,7 +137,6 @@ public class StatsFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String fetch = snapshot.child("7days").getValue().toString();
                 String[] sp = fetch.split(";");
-
 
 
                 ValueLineSeries series = new ValueLineSeries();
@@ -170,30 +167,30 @@ public class StatsFragment extends Fragment {
         });
     }
 
-    private void   highLightDate(){
+    private void highLightDate() {
 
         //ArrayList<DateData> dataArrayList;
         HelloRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     dataArrayList = new ArrayList<DateData>();
-                    for(DataSnapshot snapshot1:snapshot.getChildren()){
+                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
 
-                        String strDate= snapshot1.getKey();
+                        String strDate = snapshot1.getKey();
                         // Log.d("ParseException",strDate);
-                        int day = Integer.parseInt(strDate.substring(0,strDate.indexOf("-")));
-                        int month= Integer.parseInt(strDate.substring(3,strDate.lastIndexOf("-")));
-                        int year= Integer.parseInt(strDate.substring(strDate.lastIndexOf("-")+1,9));
-                        DateData date= new DateData(year,month,day);
+                        int day = Integer.parseInt(strDate.substring(0, strDate.indexOf("-")));
+                        int month = Integer.parseInt(strDate.substring(3, strDate.lastIndexOf("-")));
+                        int year = Integer.parseInt(strDate.substring(strDate.lastIndexOf("-") + 1, 9));
+                        DateData date = new DateData(year, month, day);
                         dataArrayList.add(date);
 
                     }
                     // MCalendarView mCalendarView= findViewById(R.id.history_calendarView);
-                    for(int i=0; i< dataArrayList.size();i++){
+                    for (int i = 0; i < dataArrayList.size(); i++) {
 
-                        DateData date= dataArrayList.get(i);
+                        DateData date = dataArrayList.get(i);
 
                         mCalendarView.markDate(date.getYear(),
                                 date.getMonth(),
@@ -221,11 +218,11 @@ public class StatsFragment extends Fragment {
                 if (userprofile != null) {
                     String fullname = userprofile.name;
 
-                    if(fullname.contains(" ")){
+                    if (fullname.contains(" ")) {
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    user_name.setText(fullname+" !");
+                    user_name.setText(fullname + " !");
 
 
                 }

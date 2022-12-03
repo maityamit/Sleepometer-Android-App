@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/window_background"
     android:orientation="vertical"
-    tools:context=".SettingsFragment">
+    tools:context=".fragments.SettingsFragment">
 
 
     <LinearLayout

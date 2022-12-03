@@ -8,10 +8,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Looper;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +19,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -36,8 +32,8 @@ public class ProfileActivity extends AppCompatActivity {
     private String userID;
     AppCompatButton Logout;
     CircleImageView profilePic;
-    TextView name,email;
-    DatabaseReference Rootref,reference;
+    TextView name, email;
+    DatabaseReference Rootref, reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,18 +48,18 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
-        Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
+        Rootref = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(ProfileActivity.this,R.style.AlertDialogTheme);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(ProfileActivity.this, R.style.AlertDialogTheme);
                 builder.setTitle("Logout");
                 builder.setIcon(android.R.drawable.ic_dialog_alert);
                 builder.setMessage("Are you sure you want to logout?");
-                builder.setBackground(getResources().getDrawable(R.drawable.input_background , null));
+                builder.setBackground(getResources().getDrawable(R.drawable.input_background, null));
                 builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -79,7 +75,6 @@ public class ProfileActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-
 
 
         getUserDatafromFirebase();
@@ -129,9 +124,6 @@ public class ProfileActivity extends AppCompatActivity {
         Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
 
     }
-
-
-
 
 
 }
