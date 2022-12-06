@@ -1,6 +1,5 @@
 package sleepometerbyamitmaity.example.sleepometer;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,13 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+import sleepometerbyamitmaity.example.sleepometer.fragments.HomeFragment;
+import sleepometerbyamitmaity.example.sleepometer.fragments.SettingsFragment;
+import sleepometerbyamitmaity.example.sleepometer.fragments.StatsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,10 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
-        String currentUserID = mAuth.getCurrentUser().getUid().toString();
-
-
-
+        if (mAuth.getCurrentUser() != null) {
+            String currentUserID = mAuth.getCurrentUser().getUid().toString();
+        }
         chipNavigationBar = findViewById(R.id.bottom_nav_bar);
         chipNavigationBar.setItemSelected(R.id.home,
                 true);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(int i) {
                         Fragment fragment = null;
-                        switch (i){
+                        switch (i) {
                             case R.id.home:
                                 fragment = new HomeFragment();
                                 break;
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public void onBackPressed(){
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this,R.style.AlertDialogTheme);
+    public void onBackPressed() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this, R.style.AlertDialogTheme);
         builder.setTitle("Confirm Exit");
         builder.setIcon(R.drawable.logo);
         builder.setMessage("Do you really want to exit?");
-        builder.setBackground(getResources().getDrawable(R.drawable.input_background , null));
+        builder.setBackground(getResources().getDrawable(R.drawable.input_background, null));
         builder.setCancelable(false);
         builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
             @Override
