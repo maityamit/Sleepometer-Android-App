@@ -62,6 +62,8 @@ public class HomeFragment extends Fragment {
     TextView time_count;
     ProgressDialog progressDialog;
     DatabaseReference Rootref;
+    TextView avgSleepHours;
+    TextView avgSleepMinutes;
 
 
     @SuppressLint("MissingInflatedId")
@@ -79,6 +81,16 @@ public class HomeFragment extends Fragment {
         textView = view.findViewById(R.id.main_act_user_name);
         button = view.findViewById(R.id.start_button);
         linearLayout = view.findViewById(R.id.active_sleep_layout);
+
+        //Displaying Avg Sleep Duration
+        avgSleepHours = view.findViewById(R.id.avg_sleep_duration_hrs);
+        avgSleepMinutes = view.findViewById(R.id.avg_sleep_duration_minutes);
+
+        int[] avgSleep = avg_sleep();
+        avgSleepHours.setText(String.valueOf(avgSleep[0]));
+        avgSleepMinutes.setText(String.valueOf(avgSleep[1]));
+
+        ////
 
         emoji = view.findViewById(R.id.sleepScore_data_emoji);
 
@@ -448,7 +460,8 @@ public class HomeFragment extends Fragment {
 
 
     //Avg Function
-    private void avg_sleep() {
+    private int[] avg_sleep() {
+        int[] sleepTime = new int[2];
         Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -485,6 +498,8 @@ public class HomeFragment extends Fragment {
                 int temp_mnt = (int) ((hello - Math.floor(hello)) * 100);
                 int Minutes = (temp_mnt * 60) / 100;
 
+                sleepTime[0] = Hours;
+                sleepTime[1] = Minutes;
                 String avgsleep = "Avg Sleep: " + Hours + " hrs " + Minutes + " min.";
 
 
@@ -495,6 +510,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        return sleepTime;
     }
 
 
