@@ -64,6 +64,7 @@ public class HomeFragment extends Fragment {
     DatabaseReference Rootref;
     TextView avgSleepHours;
     TextView avgSleepMinutes;
+    TextView sleepScore_data;
 
 
     @SuppressLint("MissingInflatedId")
@@ -89,6 +90,11 @@ public class HomeFragment extends Fragment {
         int[] avgSleep = avg_sleep();
         avgSleepHours.setText(String.valueOf(avgSleep[0]));
         avgSleepMinutes.setText(String.valueOf(avgSleep[1]));
+
+        double sleepScore = ((avgSleep[0]+avgSleep[1]/60.0)/8.0)*100;
+
+        sleepScore_data = view.findViewById((R.id.sleepScore_data));
+        sleepScore_data.setText(String.format("%.2f",sleepScore));
 
         ////
 
