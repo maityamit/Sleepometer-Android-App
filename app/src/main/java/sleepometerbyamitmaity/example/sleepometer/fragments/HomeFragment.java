@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.AlarmClock;
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -51,6 +53,7 @@ public class HomeFragment extends Fragment {
     Button extendedFloatingActionButton;
 
     ImageView btalarm;
+    Thread thread;
 
     String userID;
     TextView emoji;
@@ -65,6 +68,7 @@ public class HomeFragment extends Fragment {
     TextView avgSleepHours;
     TextView avgSleepMinutes;
     TextView sleepScore_data;
+    volatile boolean countSec = true;
 
 
     @SuppressLint("MissingInflatedId")
@@ -161,6 +165,7 @@ public class HomeFragment extends Fragment {
                     myEdit.putString("age", timeStamp);
 
                     myEdit.commit();
+                    countSec = true;
                     getOperationLocally();
                 } else {
 
@@ -183,12 +188,9 @@ public class HomeFragment extends Fragment {
                     myEdit.putString("age", null);
 
                     myEdit.commit();
+                    countSec = false;
                     getOperationLocally();
-
                 }
-
-
-                getOperationLocally();
 
             }
         });
@@ -382,31 +384,51 @@ public class HomeFragment extends Fragment {
 
 
     private void getOperationLocally() {
-
-
-        if (sharedPreferences.getString("name", "").equals("")) {
+        if (sharedPreferences.getString("name","").equals("")){
             linearLayout.setVisibility(View.GONE);
-            button.setVisibility(View.VISIBLE);
             button.setText("Start Sleep");
-        } else {
-
-            String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-
-            Timestamp date_1 = stringToTimestamp(sharedPreferences.getString("age", ""));
-            Timestamp date_2 = stringToTimestamp(timeStamp);
-            long milliseconds = date_2.getTime() - date_1.getTime();
-
-
-            time_count.setText(String.valueOf(milliseconds / 1000 / 3600) + " hr  " + milliseconds / 1000 / 60 + " min");
-
-
+        }else{
+            timeCountSetText();
             linearLayout.setVisibility(View.VISIBLE);
-            button.setVisibility(View.VISIBLE);
             button.setText("End Sleep");
 
-
         }
+    }
 
+    private void timeCountSetText() {
+        thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (countSec){
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(!countSec){
+                                return;
+                            }
+                            String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+
+                            Timestamp date_1 = stringToTimestamp(sharedPreferences.getString("age",""));
+                            Timestamp date_2 = stringToTimestamp(timeStamp);
+                            long milliseconds = date_2.getTime() - date_1.getTime();
+                            long hour = (milliseconds/1000)/3600;
+                            long min = ((milliseconds/1000)/60)%60;
+                            long sec = (milliseconds/1000)%60;
+
+                            if(hour<24) time_count.setText(hour+" hr  "+ min+" min "+ sec+" sec");
+                            else time_count.setText("24 hr+");
+                        }
+                    });
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread.start();
     }
 
 
@@ -527,6 +549,13 @@ public class HomeFragment extends Fragment {
         progressDialog.setCanceledOnTouchOutside(false);
         Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
 
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        countSec = false;
     }
 
 
