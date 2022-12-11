@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -57,6 +59,12 @@ public class HomeFragment extends Fragment {
 
     String userID;
     TextView emoji;
+
+    TextView SleepAtTime_time;
+    TextView SleepAtTime_amOrpm;
+    TextView wakeUpTimeHint_time;
+    TextView wakeUpTimeHint_amOrpm;
+
     SharedPreferences sharedPreferences;
     DatabaseReference reference;
     Button button;
@@ -65,21 +73,22 @@ public class HomeFragment extends Fragment {
     TextView time_count;
     ProgressDialog progressDialog;
     DatabaseReference Rootref;
-    TextView avgSleepHours;
-    TextView avgSleepMinutes;
-    TextView sleepScore_data;
     volatile boolean countSec = true;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
 
         extendedFloatingActionButton = view.findViewById(R.id.add_sleep_extra);
+
+        SleepAtTime_time = view.findViewById(R.id.SleepAtTime_time);
+        SleepAtTime_amOrpm = view.findViewById(R.id.SleepAtTime_amOrpm);
+        wakeUpTimeHint_time = view.findViewById(R.id.wakeUpTimeHint_time);
+        wakeUpTimeHint_amOrpm = view.findViewById(R.id.wakeUpTimeHint_amOrpm);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -87,28 +96,19 @@ public class HomeFragment extends Fragment {
         button = view.findViewById(R.id.start_button);
         linearLayout = view.findViewById(R.id.active_sleep_layout);
 
-        //Displaying Avg Sleep Duration
-        avgSleepHours = view.findViewById(R.id.avg_sleep_duration_hrs);
-        avgSleepMinutes = view.findViewById(R.id.avg_sleep_duration_minutes);
-
-        int[] avgSleep = avg_sleep();
-        avgSleepHours.setText(String.valueOf(avgSleep[0]));
-        avgSleepMinutes.setText(String.valueOf(avgSleep[1]));
-
-        double sleepScore = ((avgSleep[0]+avgSleep[1]/60.0)/8.0)*100;
-
-        sleepScore_data = view.findViewById((R.id.sleepScore_data));
-        sleepScore_data.setText(String.format("%.2f",sleepScore));
-
-        ////
-
-        emoji = view.findViewById(R.id.sleepScore_data_emoji);
+        emoji= view.findViewById(R.id.sleepScore_data_emoji);
 
         btalarm = view.findViewById(R.id.alarm_imageView);
 
         time_count = view.findViewById(R.id.time_count);
 
-        Rootref = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
+        sharedPreferences = getContext().getSharedPreferences("MySharedPref",getContext().MODE_PRIVATE);
+
+        setSleepTime();
+        setWakeTime();
+
+
 
         extendedFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +129,6 @@ public class HomeFragment extends Fragment {
 
         circleImageView = view.findViewById(R.id.user_profile_image);
         dataRetriveFromFirebase();
-        sharedPreferences = getContext().getSharedPreferences("MySharedPref", getContext().MODE_PRIVATE);
 
 
         circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -152,52 +151,100 @@ public class HomeFragment extends Fragment {
         getOperationLocally();
 
 
+
+
         button.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-
-
-                if (sharedPreferences.getString("name", "").equals("")) {
+                if (sharedPreferences.getString("name","").equals("")){
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
                     String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
                     myEdit.putString("name", "active");
                     myEdit.putString("age", timeStamp);
+                    myEdit.putString("sleepAt", timeStamp);
+                    myEdit.putString("wakeUp", "");
 
                     myEdit.commit();
+
+                    setSleepTime();
                     countSec = true;
                     getOperationLocally();
-                } else {
+                }else {
 
 
                     String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
-                    Timestamp date_1 = stringToTimestamp(sharedPreferences.getString("age", ""));
+                    Timestamp date_1 = stringToTimestamp(sharedPreferences.getString("age",""));
                     Timestamp date_2 = stringToTimestamp(timeStamp);
                     long milliseconds = date_2.getTime() - date_1.getTime();
 
-
                     String today_date = new SimpleDateFormat("dd-M-yyyy").format(new Date());
 
-                    upDateWinNode(milliseconds, today_date);
+                    upDateWinNode(milliseconds,today_date);
 
 
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
                     myEdit.putString("name", null);
                     myEdit.putString("age", null);
+                    myEdit.putString("wakeUp", timeStamp);
 
                     myEdit.commit();
+                    setWakeTime();
                     countSec = false;
                     getOperationLocally();
                 }
-
             }
         });
 
 
-        return view;
+        return  view;
 
+    }
+
+    private void setWakeTime() {
+        try{
+            String wake = sharedPreferences.getString("wakeUp","");
+            Timestamp timecurr = stringToTimestamp(wake);
+
+            long hour = Objects.requireNonNull(timecurr).getHours();
+            long min = timecurr.getMinutes();
+            if(hour>=12) wakeUpTimeHint_amOrpm.setText("pm");
+            else wakeUpTimeHint_amOrpm.setText("am");
+            hour = hour%12;
+            if(hour>=10 && min>=10) wakeUpTimeHint_time.setText(hour+":"+min+" ");
+            else if(hour<10 && min>=10) wakeUpTimeHint_time.setText("0"+hour+":"+min+" ");
+            else if(hour>=10 && min<10) wakeUpTimeHint_time.setText(hour+":"+"0"+min+" ");
+            else wakeUpTimeHint_time.setText("0"+hour+":"+"0"+min+" ");
+        }catch (Exception e){
+            wakeUpTimeHint_time.setText("--:--");
+            wakeUpTimeHint_amOrpm.setText("");
+        }
+    }
+
+    private void setSleepTime() {
+        try {
+            String sleep = sharedPreferences.getString("sleepAt", "");
+            Timestamp sleepTimeStamp = stringToTimestamp(sleep);
+            long hour = Objects.requireNonNull(sleepTimeStamp).getHours();
+            long min = sleepTimeStamp.getMinutes();
+            if (hour >= 12) SleepAtTime_amOrpm.setText("pm");
+            else SleepAtTime_amOrpm.setText("am");
+            hour = hour % 12;
+            if (hour >= 10 && min >= 10) SleepAtTime_time.setText(hour + ":" + min + " ");
+            else if (hour < 10 && min >= 10)
+                SleepAtTime_time.setText("0" + hour + ":" + min + " ");
+            else if (hour >= 10 && min < 10)
+                SleepAtTime_time.setText(hour + ":" + "0" + min + " ");
+            else SleepAtTime_time.setText("0" + hour + ":" + "0" + min + " ");
+            wakeUpTimeHint_time.setText("--:--");
+            wakeUpTimeHint_amOrpm.setText("");
+        }catch (Exception e){
+            SleepAtTime_time.setText("--:--");
+            SleepAtTime_amOrpm.setText("");
+        }
     }
 
     private void ExtraSleepAddFunction() {
@@ -220,19 +267,20 @@ public class HomeFragment extends Fragment {
                     public void onTextInputConfirmed(String text) {
                         String myText = text; //Saving Entered name in String
                         int Days = Integer.parseInt(myText);
-                        if (myText.isEmpty())
+                        if(myText.isEmpty())
                             Toast.makeText(getContext(), "Please input minitus", Toast.LENGTH_SHORT).show();
                         else {
-                            long longg = Long.parseLong(myText);
-                            longg = longg * 60 * 1000;
+                            long longg = Long.parseLong(myText) ;
+                            longg = longg * 60 *1000;
                             String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
-                            upDateWinNode(longg, today_datee);
+                            upDateWinNode(longg,today_datee);
                             Toast.makeText(getContext(), "Done. ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })
                 .setNegativeButton(android.R.string.no, null)
                 .show();
+
 
 
     }
@@ -247,33 +295,34 @@ public class HomeFragment extends Fragment {
                 int count = (int) snapshot.getChildrenCount();
 
 
-                if (!(snapshot.child(today_date).exists())) {
+                if (!(snapshot.child(today_date).exists())){
 
 
-                    HashMap userMap = new HashMap();
-                    userMap.put("date", today_date);
-                    userMap.put("sleep", String.valueOf(milliseconds));
+
+                    HashMap userMap=new HashMap();
+                    userMap.put("date",today_date);
+                    userMap.put("sleep",String.valueOf(milliseconds));
 
                     Rootref.child("Win").child(today_date).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {
 
-                            updateTheAVGData(today_date, "new", milliseconds);
+                            updateTheAVGData(today_date,"new",milliseconds);
 
                         }
                     });
 
-                } else {
+                }else{
 
 
                     String string = snapshot.child(today_date).child("sleep").getValue().toString();
                     double d = Double.parseDouble(string);
-                    d = d + milliseconds;
+                    d = d+milliseconds;
 
 
-                    HashMap userMap = new HashMap();
-                    userMap.put("date", today_date);
-                    userMap.put("sleep", String.valueOf(d));
+                    HashMap userMap=new HashMap();
+                    userMap.put("date",today_date);
+                    userMap.put("sleep",String.valueOf(d));
 
                     double finalD = d;
                     Rootref.child("Win").child(today_date).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
@@ -281,7 +330,7 @@ public class HomeFragment extends Fragment {
                         public void onComplete(@NonNull Task task) {
 
 
-                            updateTheAVGData(today_date, "old", finalD);
+                            updateTheAVGData(today_date,"old", finalD);
 
 
                         }
@@ -298,51 +347,54 @@ public class HomeFragment extends Fragment {
         });
 
 
+
+
+
     }
 
-    private void updateTheAVGData(String today_date, String old, double d) {
+    private void updateTheAVGData(String today_date, String old , double d) {
 
-        double sec = (d / 1000);
-        sec = (float) sec / 86400;
-        sec = sec * 100;
-
-
-        double finalSec = Math.round(sec * 100.0) / 100.0;
+        double sec = (d/1000);
+        sec = (float) sec/86400;
+        sec = sec*100;
 
 
-        if (old.equals("new")) {
+        double finalSec = Math.round(sec * 100.0) / 100.0;;
+
+
+        if (old.equals("new")){
             Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String s = snapshot.child("7days").getValue().toString();
-                    String[] fin = new String[7];
+                    String[] fin  = new String[7];
                     String[] sp = s.split(";");
 
-                    int i = 1, j = 0;
-                    int x = 0, y = 0;
-                    while (i < 7) {
+                    int i=1, j=0;
+                    int x = 0, y=0;
+                    while(i<7) {
                         fin[j] = sp[i];
                         i++;
                         j++;
                     }
-                    while (y < x) {
-                        fin[j] = sp[i - 1];
+                    while(y<x){
+                        fin[j] = sp[i-1];
                         j++;
                         y++;
                     }
-                    fin[fin.length - 1] = String.valueOf(finalSec);
+                    fin[fin.length-1] = String.valueOf(finalSec);
 
 
                     String up = "";
-                    for (int iy = 0; iy < 6; iy++) {
-                        up += fin[iy] + ";";
+                    for(int iy=0; iy<6; iy++) {
+                        up+=fin[iy]+";";
                     }
-                    up += fin[fin.length - 1];
+                    up+=fin[fin.length-1];
 
 
                     HashMap<String, Object> map = new HashMap<>();
                     map.put("7days", up);
-                    Rootref.updateChildren(map);
+                    Rootref.updateChildren ( map );
 
                 }
 
@@ -351,7 +403,7 @@ public class HomeFragment extends Fragment {
 
                 }
             });
-        } else {
+        }else{
             Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -360,15 +412,15 @@ public class HomeFragment extends Fragment {
 
 
                     String up = "";
-                    for (int iy = 0; iy < 6; iy++) {
-                        up += sp[iy] + ";";
+                    for(int iy=0; iy<6; iy++) {
+                        up+=sp[iy]+";";
                     }
-                    up += String.valueOf(finalSec);
+                    up+= String.valueOf(finalSec);
 
 
                     HashMap<String, Object> map = new HashMap<>();
                     map.put("7days", up);
-                    Rootref.updateChildren(map);
+                    Rootref.updateChildren ( map );
 
                 }
 
@@ -378,12 +430,12 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
-
-
     }
 
 
     private void getOperationLocally() {
+
+
         if (sharedPreferences.getString("name","").equals("")){
             linearLayout.setVisibility(View.GONE);
             button.setText("Start Sleep");
@@ -393,6 +445,7 @@ public class HomeFragment extends Fragment {
             button.setText("End Sleep");
 
         }
+
     }
 
     private void timeCountSetText() {
@@ -428,7 +481,10 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
         thread.start();
+
+
     }
 
 
@@ -452,11 +508,11 @@ public class HomeFragment extends Fragment {
                 if (userprofile != null) {
                     String fullname = userprofile.name;
 
-                    if (fullname.contains(" ")) {
+                    if(fullname.contains(" ")){
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    textView.setText(fullname + " !");
+                    textView.setText(fullname+" !");
 
 
                 }
@@ -477,19 +533,18 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void showDialog() {
+    private void showDialog(){
         new AlertDialog.Builder(requireContext())
                 .setTitle("Title")
                 .setMessage("Body")
-                .setNegativeButton("Ok", null)
+                .setNegativeButton("Ok",null)
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .show();
     }
 
 
     //Avg Function
-    private int[] avg_sleep() {
-        int[] sleepTime = new int[2];
+    private void avg_sleep(){
         Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -498,37 +553,35 @@ public class HomeFragment extends Fragment {
 
 
                 float sum = 0;
-                for (int i = 0; i < 7; i++) {
-                    sum += Float.parseFloat(sp[i]);
+                for(int i=0;i<7;i++){
+                    sum+= Float.parseFloat(sp[i]);
                 }
 
                 //this is the percentage
 
-                sum = (float) sum / 7;
-                String avg = "";
-                String reaction = "";
+                sum = (float) sum/7;
+                String avg="";
+                String reaction="";
 
-                if (0 <= sum && sum <= 20) {
-                    reaction = "😴";
-                } else if (20 < sum && sum <= 40) {
-                    reaction = "😪";
-                } else if (40 < sum && sum <= 60) {
-                    reaction = "😐";
-                } else if (60 < sum && sum <= 80) {
-                    reaction = "😊";
-                } else if (80 < sum && sum <= 100) {
-                    reaction = "😁";
+                if (0<= sum && sum <=20){
+                    reaction="😴";
+                }else if (20 < sum && sum <= 40){
+                    reaction="😪";
+                }else if (40 < sum && sum <= 60){
+                    reaction="😐";
+                }else if (60 < sum && sum <= 80){
+                    reaction="😊";
+                }else if (80< sum && sum <= 100){
+                    reaction="😁";
                 }
                 emoji.setText(reaction);
 
-                float hello = (sum * 24) / 100;
+                float hello = (sum*24)/100;
                 int Hours = (int) hello;
-                int temp_mnt = (int) ((hello - Math.floor(hello)) * 100);
-                int Minutes = (temp_mnt * 60) / 100;
+                int temp_mnt = (int) ((hello - Math.floor( hello))*100) ;
+                int Minutes = (temp_mnt*60)/100;
 
-                sleepTime[0] = Hours;
-                sleepTime[1] = Minutes;
-                String avgsleep = "Avg Sleep: " + Hours + " hrs " + Minutes + " min.";
+                String avgsleep = "Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.";
 
 
             }
@@ -538,7 +591,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        return sleepTime;
     }
 
 
@@ -551,12 +603,9 @@ public class HomeFragment extends Fragment {
 
     }
 
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         countSec = false;
     }
-
-
 }
