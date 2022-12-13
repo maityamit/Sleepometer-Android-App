@@ -28,14 +28,12 @@ import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
 import sleepometerbyamitmaity.example.sleepometer.R;
+import sleepometerbyamitmaity.example.sleepometer.databinding.FragmentSettingsBinding;
 import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
 
 public class SettingsFragment extends Fragment {
 
-    TextView user_name;
-    TextView rateus, share, feedback, privacy;
-    ImageView github, linkedin, project;
-
+    FragmentSettingsBinding binding;
     String userID;
     DatabaseReference reference;
 
@@ -45,27 +43,18 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+        binding = FragmentSettingsBinding.bind(view);
 
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-
         reference = FirebaseDatabase.getInstance().getReference("Users");
-
-        user_name = view.findViewById(R.id.settings_name);
-        rateus = view.findViewById(R.id.rateus);
-        share = view.findViewById(R.id.share);
-        feedback = view.findViewById(R.id.feedback);
-        privacy = view.findViewById(R.id.privacy);
-        github = view.findViewById(R.id.github);
-        linkedin = view.findViewById(R.id.linkedin);
-        project = view.findViewById(R.id.github_button);
 
 
         dataRetriveFromFirebase();
 
 
-        project.setOnClickListener(new View.OnClickListener() {
+        binding.githubButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/maityamit/Sleepometer-Android-App"));
@@ -73,7 +62,7 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        feedback.setOnClickListener(new View.OnClickListener() {
+        binding.feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri uri = Uri.parse("https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=maityamit308@gmail.com");
@@ -85,7 +74,7 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        share.setOnClickListener(new View.OnClickListener() {
+        binding.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -105,7 +94,7 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        privacy.setOnClickListener(new View.OnClickListener() {
+        binding.privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/maityamit/Sleepometer-Android-App"));
@@ -114,7 +103,7 @@ public class SettingsFragment extends Fragment {
         });
 
 
-        rateus.setOnClickListener(new View.OnClickListener() {
+        binding.rateus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/maityamit/Sleepometer-Android-App"));
@@ -122,7 +111,7 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        github.setOnClickListener(new View.OnClickListener() {
+        binding.github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/maityamit/maityamit"));
@@ -130,7 +119,7 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        linkedin.setOnClickListener(new View.OnClickListener() {
+        binding.linkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/maityamit"));
@@ -156,7 +145,7 @@ public class SettingsFragment extends Fragment {
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    user_name.setText(fullname + " !");
+                    binding.settingsName.setText(fullname + " !");
 
 
                 }

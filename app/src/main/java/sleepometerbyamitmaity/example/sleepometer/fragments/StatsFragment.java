@@ -28,8 +28,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import sleepometerbyamitmaity.example.sleepometer.R;
+import sleepometerbyamitmaity.example.sleepometer.databinding.FragmentStatsBinding;
 import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
-import sun.bob.mcalendarview.MCalendarView;
 import sun.bob.mcalendarview.MarkStyle;
 import sun.bob.mcalendarview.listeners.OnDateClickListener;
 import sun.bob.mcalendarview.vo.DateData;
@@ -37,30 +37,22 @@ import sun.bob.mcalendarview.vo.DateData;
 
 public class StatsFragment extends Fragment {
 
-
+    FragmentStatsBinding binding;
     DatabaseReference Rootref, HelloRef;
     String userID;
-    ValueLineChart mCubicValueLineChart;
     ArrayList<DateData> dataArrayList;
-    MCalendarView mCalendarView;
     DatabaseReference reference;
-    TextView user_name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_stats, container, false);
-
-        mCalendarView = view.findViewById(R.id.history_calendarView);
-        user_name = view.findViewById(R.id.stats_name);
-
+        binding = FragmentStatsBinding.bind(view);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        mCubicValueLineChart = (ValueLineChart) view.findViewById(R.id.cubiclinechart);
         reference = FirebaseDatabase.getInstance().getReference("Users");
-
         Rootref = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
         HelloRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("Win");
 
@@ -70,7 +62,7 @@ public class StatsFragment extends Fragment {
         dataRetriveFromFirebase();
 
 
-        mCalendarView.setOnDateClickListener(new OnDateClickListener() {
+        binding.historyCalendarView.setOnDateClickListener(new OnDateClickListener() {
             @Override
             public void onDateClick(View view, DateData date) {
 
@@ -155,8 +147,8 @@ public class StatsFragment extends Fragment {
                 series.addPoint(new ValueLinePoint("Today", Float.parseFloat(sp[6])));
                 series.addPoint(new ValueLinePoint("null", Float.parseFloat(sp[6])));
 
-                mCubicValueLineChart.addSeries(series);
-                mCubicValueLineChart.startAnimation();
+                binding.cubiclinechart.addSeries(series);
+                binding.cubiclinechart.startAnimation();
 
             }
 
@@ -187,16 +179,15 @@ public class StatsFragment extends Fragment {
                         dataArrayList.add(date);
 
                     }
-                    // MCalendarView mCalendarView= findViewById(R.id.history_calendarView);
                     for (int i = 0; i < dataArrayList.size(); i++) {
 
                         DateData date = dataArrayList.get(i);
 
-                        mCalendarView.markDate(date.getYear(),
+                        binding.historyCalendarView.markDate(date.getYear(),
                                 date.getMonth(),
                                 date.getDay());
 
-                        mCalendarView.setMarkedStyle(MarkStyle.BACKGROUND, Color.BLUE);
+                        binding.historyCalendarView.setMarkedStyle(MarkStyle.BACKGROUND, Color.BLUE);
                     }
                 }
             }
@@ -222,7 +213,7 @@ public class StatsFragment extends Fragment {
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    user_name.setText(fullname + " !");
+                    binding.statsName.setText(fullname + " !");
 
 
                 }

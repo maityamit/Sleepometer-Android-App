@@ -13,14 +13,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+import sleepometerbyamitmaity.example.sleepometer.databinding.ActivityMainBinding;
 import sleepometerbyamitmaity.example.sleepometer.fragments.HomeFragment;
 import sleepometerbyamitmaity.example.sleepometer.fragments.SettingsFragment;
 import sleepometerbyamitmaity.example.sleepometer.fragments.StatsFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    ChipNavigationBar chipNavigationBar;
+    ActivityMainBinding binding;
 
     private FirebaseAuth mAuth;
 
@@ -28,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
             String currentUserID = mAuth.getCurrentUser().getUid().toString();
         }
-        chipNavigationBar = findViewById(R.id.bottom_nav_bar);
-        chipNavigationBar.setItemSelected(R.id.home,
+        binding.bottomNavBar.setItemSelected(R.id.home,
                 true);
 
 
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.frag_container_nav,
                         new HomeFragment()).commit();
 
-        chipNavigationBar.setOnItemSelectedListener
+        binding.bottomNavBar.setOnItemSelectedListener
                 (new ChipNavigationBar.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(int i) {

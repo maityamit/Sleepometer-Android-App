@@ -1,17 +1,10 @@
 package sleepometerbyamitmaity.example.sleepometer.fragments;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.AlarmClock;
@@ -19,11 +12,12 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,67 +35,34 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 import sleepometerbyamitmaity.example.sleepometer.ProfileActivity;
 import sleepometerbyamitmaity.example.sleepometer.R;
+import sleepometerbyamitmaity.example.sleepometer.databinding.FragmentHomeBinding;
 import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
 
 
 public class HomeFragment extends Fragment {
 
-
-    CircleImageView circleImageView;
-    Button extendedFloatingActionButton;
-
-    ImageView btalarm;
+    FragmentHomeBinding binding;
     Thread thread;
-
     String userID;
-    TextView emoji;
-
-    TextView SleepAtTime_time;
-    TextView SleepAtTime_amOrpm;
-    TextView wakeUpTimeHint_time;
-    TextView wakeUpTimeHint_amOrpm;
-
     SharedPreferences sharedPreferences;
     DatabaseReference reference;
-    Button button;
-    LinearLayout linearLayout;
-    TextView textView;
-    TextView time_count;
     ProgressDialog progressDialog;
     DatabaseReference Rootref;
     volatile boolean countSec = true;
 
-    @SuppressLint("MissingInflatedId")
+    public HomeFragment(){}
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_home, container, false);
-
-
-        extendedFloatingActionButton = view.findViewById(R.id.add_sleep_extra);
-
-        SleepAtTime_time = view.findViewById(R.id.SleepAtTime_time);
-        SleepAtTime_amOrpm = view.findViewById(R.id.SleepAtTime_amOrpm);
-        wakeUpTimeHint_time = view.findViewById(R.id.wakeUpTimeHint_time);
-        wakeUpTimeHint_amOrpm = view.findViewById(R.id.wakeUpTimeHint_amOrpm);
+        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        binding = FragmentHomeBinding.bind(view);
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        textView = view.findViewById(R.id.main_act_user_name);
-        button = view.findViewById(R.id.start_button);
-        linearLayout = view.findViewById(R.id.active_sleep_layout);
-
-        emoji= view.findViewById(R.id.sleepScore_data_emoji);
-
-        btalarm = view.findViewById(R.id.alarm_imageView);
-
-        time_count = view.findViewById(R.id.time_count);
-
         Rootref = FirebaseDatabase.getInstance ().getReference ().child("Users").child(userID);
         sharedPreferences = getContext().getSharedPreferences("MySharedPref",getContext().MODE_PRIVATE);
 
@@ -110,13 +71,13 @@ public class HomeFragment extends Fragment {
 
 
 
-        extendedFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+        binding.addSleepExtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExtraSleepAddFunction();
             }
         });
-        view.findViewById(R.id.sleepScore_info).setOnClickListener(new View.OnClickListener() {
+        binding.sleepScoreInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialog();
@@ -126,12 +87,10 @@ public class HomeFragment extends Fragment {
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
-
-        circleImageView = view.findViewById(R.id.user_profile_image);
         dataRetriveFromFirebase();
 
 
-        circleImageView.setOnClickListener(new View.OnClickListener() {
+        binding.userProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ProfileActivity.class);
@@ -139,7 +98,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        btalarm.setOnClickListener(new View.OnClickListener() {
+        binding.alarmImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openClockIntent = new Intent(AlarmClock.ACTION_SET_ALARM);
@@ -153,7 +112,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        binding.startButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
@@ -200,8 +159,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        return  view;
-
+        return view;
     }
 
     private void setWakeTime() {
@@ -211,16 +169,16 @@ public class HomeFragment extends Fragment {
 
             long hour = Objects.requireNonNull(timecurr).getHours();
             long min = timecurr.getMinutes();
-            if(hour>=12) wakeUpTimeHint_amOrpm.setText("pm");
-            else wakeUpTimeHint_amOrpm.setText("am");
+            if(hour>=12) binding.wakeUpTimeHintAmOrpm.setText("pm");
+            else binding.wakeUpTimeHintAmOrpm.setText("am");
             hour = hour%12;
-            if(hour>=10 && min>=10) wakeUpTimeHint_time.setText(hour+":"+min+" ");
-            else if(hour<10 && min>=10) wakeUpTimeHint_time.setText("0"+hour+":"+min+" ");
-            else if(hour>=10 && min<10) wakeUpTimeHint_time.setText(hour+":"+"0"+min+" ");
-            else wakeUpTimeHint_time.setText("0"+hour+":"+"0"+min+" ");
+            if(hour>=10 && min>=10) binding.wakeUpTimeHintTime.setText(hour+":"+min+" ");
+            else if(hour<10 && min>=10) binding.wakeUpTimeHintTime.setText("0"+hour+":"+min+" ");
+            else if(hour>=10 && min<10) binding.wakeUpTimeHintTime.setText(hour+":"+"0"+min+" ");
+            else binding.wakeUpTimeHintTime.setText("0"+hour+":"+"0"+min+" ");
         }catch (Exception e){
-            wakeUpTimeHint_time.setText("--:--");
-            wakeUpTimeHint_amOrpm.setText("");
+            binding.wakeUpTimeHintTime.setText("--:--");
+            binding.wakeUpTimeHintAmOrpm.setText("");
         }
     }
 
@@ -230,20 +188,20 @@ public class HomeFragment extends Fragment {
             Timestamp sleepTimeStamp = stringToTimestamp(sleep);
             long hour = Objects.requireNonNull(sleepTimeStamp).getHours();
             long min = sleepTimeStamp.getMinutes();
-            if (hour >= 12) SleepAtTime_amOrpm.setText("pm");
-            else SleepAtTime_amOrpm.setText("am");
+            if (hour >= 12) binding.SleepAtTimeAmOrpm.setText("pm");
+            else binding.SleepAtTimeAmOrpm.setText("am");
             hour = hour % 12;
-            if (hour >= 10 && min >= 10) SleepAtTime_time.setText(hour + ":" + min + " ");
+            if (hour >= 10 && min >= 10) binding.SleepAtTimeTime.setText(hour + ":" + min + " ");
             else if (hour < 10 && min >= 10)
-                SleepAtTime_time.setText("0" + hour + ":" + min + " ");
+                binding.SleepAtTimeTime.setText("0" + hour + ":" + min + " ");
             else if (hour >= 10 && min < 10)
-                SleepAtTime_time.setText(hour + ":" + "0" + min + " ");
-            else SleepAtTime_time.setText("0" + hour + ":" + "0" + min + " ");
-            wakeUpTimeHint_time.setText("--:--");
-            wakeUpTimeHint_amOrpm.setText("");
+                binding.SleepAtTimeTime.setText(hour + ":" + "0" + min + " ");
+            else binding.SleepAtTimeTime.setText("0" + hour + ":" + "0" + min + " ");
+            binding.wakeUpTimeHintTime.setText("--:--");
+            binding.wakeUpTimeHintAmOrpm.setText("");
         }catch (Exception e){
-            SleepAtTime_time.setText("--:--");
-            SleepAtTime_amOrpm.setText("");
+            binding.SleepAtTimeTime.setText("--:--");
+            binding.SleepAtTimeAmOrpm.setText("");
         }
     }
 
@@ -434,15 +392,13 @@ public class HomeFragment extends Fragment {
 
 
     private void getOperationLocally() {
-
-
         if (sharedPreferences.getString("name","").equals("")){
-            linearLayout.setVisibility(View.GONE);
-            button.setText("Start Sleep");
+            binding.activeSleepLayout.setVisibility(View.GONE);
+            binding.startButton.setText("Start Sleep");
         }else{
             timeCountSetText();
-            linearLayout.setVisibility(View.VISIBLE);
-            button.setText("End Sleep");
+            binding.activeSleepLayout.setVisibility(View.VISIBLE);
+            binding.startButton.setText("End Sleep");
 
         }
 
@@ -469,8 +425,8 @@ public class HomeFragment extends Fragment {
                             long min = ((milliseconds/1000)/60)%60;
                             long sec = (milliseconds/1000)%60;
 
-                            if(hour<24) time_count.setText(hour+" hr  "+ min+" min "+ sec+" sec");
-                            else time_count.setText("24 hr+");
+                            if(hour<24) binding.timeCount.setText(hour+" hr  "+ min+" min "+ sec+" sec");
+                            else binding.timeCount.setText("24 hr+");
                         }
                     });
                     try {
@@ -512,7 +468,7 @@ public class HomeFragment extends Fragment {
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    textView.setText(fullname+" !");
+                    binding.mainActUserName.setText(fullname+" !");
 
 
                 }
@@ -521,7 +477,9 @@ public class HomeFragment extends Fragment {
                 Object pfpUrl = snapshot.child("user_image").getValue();
                 if (pfpUrl != null) {
                     // If the url is not null, then adding the image
-                    Picasso.get().load(pfpUrl.toString()).placeholder(R.drawable.profile).error(R.drawable.profile).into(circleImageView);
+                    Picasso.get().load(pfpUrl.toString()).placeholder(R.drawable.profile)
+                            .error(R.drawable.profile)
+                            .into(binding.userProfileImage);
                 }
 
             }
@@ -574,7 +532,7 @@ public class HomeFragment extends Fragment {
                 }else if (80< sum && sum <= 100){
                     reaction="😁";
                 }
-                emoji.setText(reaction);
+                binding.sleepScoreDataEmoji.setText(reaction);
 
                 float hello = (sum*24)/100;
                 int Hours = (int) hello;

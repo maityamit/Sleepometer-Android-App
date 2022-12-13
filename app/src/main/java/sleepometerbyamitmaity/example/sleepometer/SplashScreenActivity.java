@@ -18,7 +18,11 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import sleepometerbyamitmaity.example.sleepometer.databinding.ActivitySplashScreenBinding;
+
 public class SplashScreenActivity extends AppCompatActivity {
+
+    ActivitySplashScreenBinding binding;
     private boolean connected = false;
     private FirebaseAuth mAuth;
     private String currentUserID;
@@ -35,20 +39,16 @@ public class SplashScreenActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //This method is used so that your splash activity
         //can cover the entire screen.
-        setContentView(R.layout.activity_splash_screen);
-
-        //widgets reference
-        ImageView iconAPP=(ImageView)findViewById(R.id.splashIcon);
-        TextView appName=(TextView)findViewById(R.id.splashAppName);
-        TextView appSubName=(TextView)findViewById(R.id.splashSubText);
+        binding = ActivitySplashScreenBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         //setting animation to imageView and Textview
         top_welcome_anim= AnimationUtils.loadAnimation(this,R.anim.welcome_top_animation);
         bottom_welcome_anim= AnimationUtils.loadAnimation(this,R.anim.welcome_bottom_animation);
 
-        iconAPP.setAnimation(top_welcome_anim);
-        appName.setAnimation(bottom_welcome_anim);
-        appSubName.setAnimation(bottom_welcome_anim);
+        binding.splashIcon.setAnimation(top_welcome_anim);
+        binding.splashAppName.setAnimation(bottom_welcome_anim);
+        binding.splashSubText.setAnimation(bottom_welcome_anim);
 
 
         mAuth = FirebaseAuth.getInstance ();
