@@ -14,18 +14,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
 import sleepometerbyamitmaity.example.sleepometer.alarmBroadcastReceiver.AlarmReceiver;
+import sleepometerbyamitmaity.example.sleepometer.databinding.ActivityAlarmBinding;
 
 public class Alarm extends AppCompatActivity {
-    TimePicker alarmTimePicker;
+    ActivityAlarmBinding binding;
     PendingIntent pendingIntent;
     AlarmManager alarmManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityAlarmBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        alarmTimePicker = (TimePicker) findViewById(R.id.timePicker);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
     }
@@ -38,8 +39,8 @@ public class Alarm extends AppCompatActivity {
             Calendar calendar = Calendar.getInstance();
 
             // calendar is called to get current time in hour and minute
-            calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
-            calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
+            calendar.set(Calendar.HOUR_OF_DAY, binding.timePicker.getCurrentHour());
+            calendar.set(Calendar.MINUTE, binding.timePicker.getCurrentMinute());
 
             // using intent i have class AlarmReceiver class which inherits
             // BroadcastReceiver

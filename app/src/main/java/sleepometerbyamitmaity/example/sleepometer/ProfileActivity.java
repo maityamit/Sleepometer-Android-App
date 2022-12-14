@@ -24,35 +24,28 @@ import com.squareup.picasso.Picasso;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import sleepometerbyamitmaity.example.sleepometer.databinding.ActivityProfileBinding;
 import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    ActivityProfileBinding binding;
     ProgressDialog progressDialog;
     private String userID;
-    AppCompatButton Logout;
-    CircleImageView profilePic;
-    TextView name, email;
     DatabaseReference Rootref, reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-
-        name = findViewById(R.id.user_name);
-        email = findViewById(R.id.user_email);
-        Logout = findViewById(R.id.logout);
-        profilePic = findViewById(R.id.user_image);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-
         Rootref = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
-
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
-        Logout.setOnClickListener(new View.OnClickListener() {
+        binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(ProfileActivity.this, R.style.AlertDialogTheme);
@@ -93,8 +86,8 @@ public class ProfileActivity extends AppCompatActivity {
                     String fullname = userprofile.name;
                     String email_ = userprofile.email;
 
-                    name.setText(fullname);
-                    email.setText(email_);
+                    binding.userName.setText(fullname);
+                    binding.userEmail.setText(email_);
 
                 }
 
@@ -102,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Object pfpUrl = snapshot.child("user_image").getValue();
                 if (pfpUrl != null) {
                     // If the url is not null, then adding the image
-                    Picasso.get().load(pfpUrl.toString()).placeholder(R.drawable.profile).error(R.drawable.profile).into(profilePic);
+                    Picasso.get().load(pfpUrl.toString()).placeholder(R.drawable.profile).error(R.drawable.profile).into(binding.userImage);
                 }
 
                 progressDialog.dismiss();

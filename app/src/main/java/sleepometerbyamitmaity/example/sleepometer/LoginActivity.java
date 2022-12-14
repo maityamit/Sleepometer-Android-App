@@ -31,10 +31,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+import sleepometerbyamitmaity.example.sleepometer.databinding.ActivityLoginBinding;
+
 public class LoginActivity extends AppCompatActivity {
 
-    ImageView gotoGoogle;
-
+    ActivityLoginBinding binding;
     GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private DatabaseReference UsersReference;
@@ -46,13 +47,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        gotoGoogle=findViewById(R.id.gotoGoogleBtn);
-
-
-
-        gotoGoogle.setOnClickListener(new View.OnClickListener() {
+        binding.gotoGoogleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
