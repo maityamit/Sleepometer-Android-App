@@ -71,6 +71,15 @@
 <tr>
 <td align="center"><img src="https://avatars.githubusercontent.com/u/86477458?v=4?s=100" width="120px;" alt=""/><br><h2>Syed Quasim</h2></td>
 <td align="center"> <img src="https://avatars.githubusercontent.com/u/51732590?v=4?s=100" width="120px;" alt=""/><br> <h2>Venkatesh Lingampally</h2></td>
+<td align="center"><img src="https://avatars.githubusercontent.com/u/110237670?v=4?s=100" width="120px;" alt=""/><br><h2>RShokeen</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/66544968?v=4?s=100" width="120px;" alt=""/><br> <h2>Vishal Anand</h2></td>
+<td align="center"><img src="https://avatars.githubusercontent.com/u/95225751?v=4?s=100" width="120px;" alt=""/><br><h2>KULDEEP SINGH</h2></td>
+
+</tr>
+
+<tr>
+<td align="center"><img src="https://avatars.githubusercontent.com/u/23008139?v=4?s=100" width="120px;" alt=""/><br><h2>AstroITNinja</h2></td>
+<td align="center"> <img src="https://avatars.githubusercontent.com/u/91470808?v=4?s=100" width="120px;" alt=""/><br> <h2>Kshitij Patil</h2></td>
 
 </tr>
     
