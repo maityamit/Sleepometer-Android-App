@@ -135,7 +135,9 @@ public class StatsFragment extends Fragment {
 
                 float x = Float.parseFloat(sp[6]);
 
-                series.setColor(getResources().getColor(R.color.purple_700));
+                try{
+                    series.setColor(getResources().getColor(R.color.purple_700));
+                }catch (Exception e){e.printStackTrace();}
 
                 series.addPoint(new ValueLinePoint("null", Float.parseFloat(sp[0])));
                 series.addPoint(new ValueLinePoint("7th", Float.parseFloat(sp[0])));
