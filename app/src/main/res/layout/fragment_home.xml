@@ -137,28 +137,18 @@
                             android:layout_below="@id/sleepScore"
                             android:paddingLeft="10dp"
                             android:paddingBottom="10dp"
-                            android:text="80 "
+                            android:text="--"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/sleepScore_data_unit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/sleepScore_data"
-                            android:layout_below="@id/sleepScore"
-                            android:text="%"
-                            android:textColor="#AAA9A9"
-                            android:textSize="20sp" />
-
-                        <TextView
                             android:id="@+id/sleepScore_data_emoji"
-                            android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/sleepScore"
-                            android:layout_toRightOf="@id/sleepScore_data_unit"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@id/sleepScore_data"
                             android:text="😴"
                             android:textColor="#AAA9A9"
                             android:textSize="20sp" />
@@ -194,51 +184,20 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/avg_sleep_duration"
-                            >
+                            android:layout_below="@id/avg_sleep_duration">
 
                             <TextView
                                 android:id="@+id/avg_sleep_duration_hrs"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textStyle="bold"
                                 android:layout_below="@id/avg_sleep_duration"
                                 android:paddingLeft="10dp"
                                 android:paddingBottom="10dp"
-                                android:text="80 "
+                                android:text="-----"
                                 android:textColor="@color/white"
-                                android:textSize="20sp" />
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/avg_sleep_duration_hrsHint"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/avg_sleep_duration"
-                                android:text="hrs"
-                                android:textColor="#AAA9A9"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:id="@+id/avg_sleep_duration_minutes"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/avg_sleep_duration"
-                                android:paddingLeft="10dp"
-                                android:paddingBottom="10dp"
-                                android:textStyle="bold"
-                                android:text="20 "
-                                android:textColor="@android:color/white"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:id="@+id/avg_sleep_duration_minutesHint"
-                                android:layout_width="wrap_content"
-                                android:textColor="#AAA9A9"
-                                android:layout_height="wrap_content"
-                                android:layout_toRightOf="@id/avg_sleep_duration_minutes"
-                                android:layout_below="@id/avg_sleep_duration"
-                                android:text="mnts"
-                                android:textSize="20sp" />
 
                         </LinearLayout>
 

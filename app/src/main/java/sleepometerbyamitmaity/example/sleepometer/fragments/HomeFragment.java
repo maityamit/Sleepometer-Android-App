@@ -68,6 +68,7 @@ public class HomeFragment extends Fragment {
 
         setSleepTime();
         setWakeTime();
+        avg_sleep();
 
 
 
@@ -397,9 +398,9 @@ public class HomeFragment extends Fragment {
             binding.startButton.setText("Start Sleep");
         }else{
             timeCountSetText();
+            avg_sleep();
             binding.activeSleepLayout.setVisibility(View.VISIBLE);
             binding.startButton.setText("End Sleep");
-
         }
 
     }
@@ -518,7 +519,7 @@ public class HomeFragment extends Fragment {
                 //this is the percentage
 
                 sum = (float) sum/7;
-                String avg="";
+                int percentage = (int) sum;
                 String reaction="";
 
                 if (0<= sum && sum <=20){
@@ -533,15 +534,15 @@ public class HomeFragment extends Fragment {
                     reaction="😁";
                 }
                 binding.sleepScoreDataEmoji.setText(reaction);
+                binding.sleepScoreData.setText(percentage+"%");
 
                 float hello = (sum*24)/100;
                 int Hours = (int) hello;
                 int temp_mnt = (int) ((hello - Math.floor( hello))*100) ;
                 int Minutes = (temp_mnt*60)/100;
 
-                String avgsleep = "Avg Sleep: "+Hours+" hrs "+Minutes+" mnts.";
-
-
+                String avgsleep = Hours+"hr "+Minutes+"min";
+                binding.avgSleepDurationHrs.setText(avgsleep);
             }
 
             @Override
