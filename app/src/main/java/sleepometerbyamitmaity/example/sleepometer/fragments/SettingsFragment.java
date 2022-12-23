@@ -1,5 +1,6 @@
 package sleepometerbyamitmaity.example.sleepometer.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -41,7 +42,6 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         binding = FragmentSettingsBinding.bind(view);
 
@@ -52,7 +52,6 @@ public class SettingsFragment extends Fragment {
 
 
         dataRetriveFromFirebase();
-
 
         binding.githubButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,35 +69,21 @@ public class SettingsFragment extends Fragment {
                         "mailto", "maityamit308@gmail.com", null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
                 emailIntent.putExtra(Intent.EXTRA_TEXT, "Text");
-                startActivityForResult(Intent.createChooser(emailIntent, "Send email..."), 0);
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         });
 
         binding.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                String send = "Hi , I would like to invite you to install this app called Sleepometer \n" + "https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer";
-                Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.banner);
-                Intent share = new Intent(Intent.ACTION_SEND);
-                share.setType("image/jpeg");
-                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-                share.putExtra(Intent.EXTRA_TEXT, send);
-                String path = MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), b, "Invite", null);
-                Uri imageUri = Uri.parse(path);
-                share.putExtra(Intent.EXTRA_STREAM, imageUri);
-
-
+                shareApp(getContext());
             }
         });
 
         binding.privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/maityamit/Sleepometer-Android-App"));
-                startActivity(browserIntent);
+                rateUs(getContext());
             }
         });
 
@@ -106,8 +91,7 @@ public class SettingsFragment extends Fragment {
         binding.rateus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/maityamit/Sleepometer-Android-App"));
-                startActivity(browserIntent);
+                rateUs(getContext());
             }
         });
 
@@ -129,6 +113,27 @@ public class SettingsFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void rateUs(Context context) {
+        Intent rateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+context.getPackageName()));
+        startActivity(rateIntent);
+    }
+
+    private static void shareApp(Context context)
+    {
+        final String appPackageName = context.getPackageName();
+        String send = "Hi , I would like to invite you to install this app called Sleepometer \n" + "https://play.google.com/store/apps/details?id=" + appPackageName;
+        Bitmap b = BitmapFactory.decodeResource(context.getResources(), R.drawable.banner);
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("image/jpeg");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        share.putExtra(Intent.EXTRA_TEXT, send);
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), b, "Invite", null);
+        Uri imageUri = Uri.parse(path);
+        share.putExtra(Intent.EXTRA_STREAM, imageUri);
+        context.startActivity(share);
     }
 
     private void dataRetriveFromFirebase() {
