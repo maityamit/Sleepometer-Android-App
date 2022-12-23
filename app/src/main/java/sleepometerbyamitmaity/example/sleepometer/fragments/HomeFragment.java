@@ -1,6 +1,8 @@
 package sleepometerbyamitmaity.example.sleepometer.fragments;
 
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -8,10 +10,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.AlarmClock;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,10 +32,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-import com.yarolegovich.lovelydialog.LovelyTextInputDialog;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
@@ -51,6 +55,8 @@ public class HomeFragment extends Fragment {
     ProgressDialog progressDialog;
     DatabaseReference Rootref;
     volatile boolean countSec = true;
+
+    TimePicker sleepMilli,wakeMilli;
 
     public HomeFragment(){}
 
@@ -170,17 +176,21 @@ public class HomeFragment extends Fragment {
 
             long hour = Objects.requireNonNull(timecurr).getHours();
             long min = timecurr.getMinutes();
-            if(hour>=12) binding.wakeUpTimeHintAmOrpm.setText("pm");
-            else binding.wakeUpTimeHintAmOrpm.setText("am");
+            String am_pm ;
+            if(hour>=12) am_pm = "pm";
+            else am_pm = "am";
             hour = hour%12;
-            if(hour>=10 && min>=10) binding.wakeUpTimeHintTime.setText(hour+":"+min+" ");
-            else if(hour<10 && min>=10) binding.wakeUpTimeHintTime.setText("0"+hour+":"+min+" ");
-            else if(hour>=10 && min<10) binding.wakeUpTimeHintTime.setText(hour+":"+"0"+min+" ");
-            else binding.wakeUpTimeHintTime.setText("0"+hour+":"+"0"+min+" ");
+            formatTime(hour,min, binding.wakeUpTimeHintTime,am_pm);
         }catch (Exception e){
             binding.wakeUpTimeHintTime.setText("--:--");
-            binding.wakeUpTimeHintAmOrpm.setText("");
         }
+    }
+
+    private void formatTime(long hour, long min,TextView txt,String am_pm){
+        if(hour>=10 && min>=10) txt.setText(hour+":"+min+" "+am_pm);
+        else if(hour<10 && min>=10) txt.setText("0"+hour+":"+min+" "+am_pm);
+        else if(hour>=10 && min<10) txt.setText(hour+":"+"0"+min+" "+am_pm);
+        else txt.setText("0"+hour+":"+"0"+min+" "+am_pm);
     }
 
     private void setSleepTime() {
@@ -189,60 +199,90 @@ public class HomeFragment extends Fragment {
             Timestamp sleepTimeStamp = stringToTimestamp(sleep);
             long hour = Objects.requireNonNull(sleepTimeStamp).getHours();
             long min = sleepTimeStamp.getMinutes();
-            if (hour >= 12) binding.SleepAtTimeAmOrpm.setText("pm");
-            else binding.SleepAtTimeAmOrpm.setText("am");
+            String am_pm ;
+            if(hour>=12) am_pm = "pm";
+            else am_pm = "am";
             hour = hour % 12;
-            if (hour >= 10 && min >= 10) binding.SleepAtTimeTime.setText(hour + ":" + min + " ");
-            else if (hour < 10 && min >= 10)
-                binding.SleepAtTimeTime.setText("0" + hour + ":" + min + " ");
-            else if (hour >= 10 && min < 10)
-                binding.SleepAtTimeTime.setText(hour + ":" + "0" + min + " ");
-            else binding.SleepAtTimeTime.setText("0" + hour + ":" + "0" + min + " ");
+            formatTime(hour,min, binding.SleepAtTimeTime,am_pm);
             binding.wakeUpTimeHintTime.setText("--:--");
-            binding.wakeUpTimeHintAmOrpm.setText("");
         }catch (Exception e){
             binding.SleepAtTimeTime.setText("--:--");
-            binding.SleepAtTimeAmOrpm.setText("");
         }
     }
 
     private void ExtraSleepAddFunction() {
 
-
-        new LovelyTextInputDialog(getContext(), R.style.EditTextTintTheme)
-                .setTopColorRes(R.color.purple_200)
-                .setTitle("Missed to Click Button ?")
-                .setMessage("How many minutes you sleep ?")
-                .setInputType(InputType.TYPE_CLASS_NUMBER)
-                .setIcon(R.drawable.ic_baseline_edit_24)
-                .setInputFilter("Wrong Input, please try again!", new LovelyTextInputDialog.TextFilter() {
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.time_pick_dialog,null);
+        AlertDialog timePickerDialog = new AlertDialog.Builder(getContext())
+                .setTitle("Set Time")
+                .setView(v)
+                .setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
-                    public boolean check(String text) {
-                        return text.matches("\\w+");
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
+                        long totalMillisec = (Math.abs(sleepMilli.getHour()-wakeMilli.getHour())*60
+                                +Math.abs(sleepMilli.getMinute()-wakeMilli.getMinute()))*1000;
+                        upDateWinNode(totalMillisec,today_datee);
+                        Toast.makeText(getContext(), "Done. ", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setConfirmButton(android.R.string.ok, new LovelyTextInputDialog.OnTextInputConfirmListener() {
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onTextInputConfirmed(String text) {
-                        String myText = text; //Saving Entered name in String
-                        int Days = Integer.parseInt(myText);
-                        if(myText.isEmpty())
-                            Toast.makeText(getContext(), "Please input minitus", Toast.LENGTH_SHORT).show();
-                        else {
-                            long longg = Long.parseLong(myText) ;
-                            longg = longg * 60 *1000;
-                            String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
-                            upDateWinNode(longg,today_datee);
-                            Toast.makeText(getContext(), "Done. ", Toast.LENGTH_SHORT).show();
-                        }
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
                     }
-                })
-                .setNegativeButton(android.R.string.no, null)
-                .show();
+                }).create();
+        timePickerDialog.show();
+        TextView setSleepTimeTv = (TextView) v.findViewById(R.id.setSleepTimeTv);
+        TextView setWakeTimeTv = (TextView) v.findViewById(R.id.setWakeTimeTv);
 
 
+        v.findViewById(R.id.setSleepTimeBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
+                        android.R.style.Theme_DeviceDefault_Dialog_MinWidth,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker timePicker, int sleepHourT, int sleepMinuteT) {
+                                sleepMilli = timePicker;
+                                String am_pm ;
+                                if(sleepHourT>=12) am_pm = "pm";
+                                else am_pm = "am";
+                                sleepHourT = sleepHourT%12;
+                                formatTime(sleepHourT,sleepMinuteT,setSleepTimeTv,am_pm);
+                            }
 
-    }
+
+                        }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY),Calendar.getInstance().get(Calendar.MINUTE),false);
+
+                timePickerDialog.show();
+
+            }
+        });
+
+        v.findViewById(R.id.setWakeTimeBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog timePickerDialog1 = new TimePickerDialog(getContext(),
+                        android.R.style.Theme_DeviceDefault_Dialog_MinWidth,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker timePicker, int wakeHour, int wakeMinute) {
+                                wakeMilli = timePicker;
+                                String am_pm ;
+                                if(wakeHour>=12) am_pm = "pm";
+                                else am_pm = "am";
+                                wakeHour = wakeHour%12;
+
+                                formatTime(wakeHour,wakeMinute,setWakeTimeTv,am_pm);
+                            }
+                        }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY),Calendar.getInstance().get(Calendar.MINUTE),false);
+                timePickerDialog1.show();
+
+            }
+        });
+            }
 
     private void upDateWinNode(long milliseconds, String today_date) {
 

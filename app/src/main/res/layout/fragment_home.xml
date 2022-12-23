@@ -255,15 +255,6 @@
                             android:textColor="@color/white"
                             android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/SleepAtTime_amOrpm"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="#AAA9A9"
-                            android:layout_toRightOf="@id/SleepAtTime_time"
-                            android:layout_below="@id/SleepAtTime"
-                            android:text="pm"
-                            android:textSize="20sp" />
 
 
                     </RelativeLayout>
@@ -310,16 +301,6 @@
                                 android:textStyle="bold"
                                 android:text="06:00 "
                                 android:textColor="@color/white"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:id="@+id/wakeUpTimeHint_amOrpm"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="#AAA9A9"
-                                android:layout_below="@id/avg_sleep_duration"
-                                android:layout_toRightOf="@id/avg_sleep_duration"
-                                android:text="am"
                                 android:textSize="20sp" />
 
 
