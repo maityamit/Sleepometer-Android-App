@@ -31,22 +31,11 @@
 </p>
   
 <br>
-  
-  <h1 align=center> ⭐ Project Participated </h1>
- <p align="center">
-  
-
-<br>
-
-   <h1 align=center>Current Projects Contributors ✨ </h1>
-
-  
-
    
    
 <br>
   
-<h1 align=center> Project Participated </h1>
+<h1 align=center> Project Participated ✨ </h1>
  <p align="center">
   <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="40%" /></a>
   <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/hacktoberfest.png" width="40%" /></a>
@@ -109,5 +98,11 @@
 | ![Imgur](Demo/7.png) | ![Imgur](Demo/8.png) | |
   
   
+
+<br>
+<br>
+  
+  
+[Amit Maity](https://www.linkedin.com/in/maityamit)
   
 
