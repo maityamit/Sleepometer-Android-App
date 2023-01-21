@@ -12,7 +12,23 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_centerInParent="true"
+        android:id="@+id/logo"
         android:src="@drawable/logo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/otpVerification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/gotoGoogleBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:background="#66A9F1"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="OTP Verification"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"/>
 
 
     <ImageView

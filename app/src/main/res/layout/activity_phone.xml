@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="#DEDEDE"
+    tools:context=".PhoneActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:gravity="center"
+        android:textSize="@dimen/_50sdp"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/_10sdp"/>
+
+
+
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/photo"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_10sdp"/>
+
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableEnd="@drawable/username_right"
+        android:padding="@dimen/_10sdp"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/_15sdp"
+        android:hint="Enter User Name"
+        />
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/edit_text_bg"
+        android:padding="@dimen/_10sdp"
+        android:drawableEnd="@drawable/username_right"
+        android:inputType="phone"
+        android:textSize="@dimen/_15sdp"
+        android:hint="Enter Phone Number"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVerifyOTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:text="Verify Mobile Number"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_20sdp"
+        android:background="@drawable/btn_bg"
+        android:textColor="@color/white"/>
+
+
+
+
+</LinearLayout>

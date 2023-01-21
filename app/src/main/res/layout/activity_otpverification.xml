@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".OTPVerificationActivity">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="OTP Verification"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/otp"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        android:src="@drawable/otp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/otpTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/otp"
+        android:text="Enter the OTP sent on your mobile number"/>
+
+    <LinearLayout
+        android:id="@+id/otpNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otpTxt"
+        android:layout_margin="@dimen/_20sdp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/otp1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:inputType="number"
+            android:gravity="center"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:maxLength="6"
+            android:layoutDirection="ltr"
+            />
+
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitOTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otpNumber"
+        android:text="Submit"
+        android:background="@drawable/btn_bg"
+        android:textSize="@dimen/_25sdp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+
+        android:textAllCaps="false"/>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
