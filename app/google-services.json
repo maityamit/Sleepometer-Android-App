@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "593540850089",
-    "firebase_url": "https://sleepomeeter-default-rtdb.firebaseio.com",
-    "project_id": "sleepomeeter",
-    "storage_bucket": "sleepomeeter.appspot.com"
+    "project_number": "471313796780",
+    "project_id": "sleepometer-4b99c",
+    "storage_bucket": "sleepometer-4b99c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:593540850089:android:5d71fb2a677dea62b3a4b8",
+        "mobilesdk_app_id": "1:471313796780:android:20d5fb36e5a4c1ef8a5909",
         "android_client_info": {
           "package_name": "sleepometerbyamitmaity.example.sleepometer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "593540850089-suh3lmjo8fi5sljq5n06cuds2frm17hl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "sleepometerbyamitmaity.example.sleepometer",
-            "certificate_hash": "c5cb33311a1250d56c4cc100c52638626ea70cdb"
-          }
-        },
-        {
-          "client_id": "593540850089-fpdjv1r37h332s1jds1ek9cfrd1tg6cr.apps.googleusercontent.com",
+          "client_id": "471313796780-0dc41r528al9qv2hqro7qq31j4a5qvda.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAS2n3NlbepZMzkwx0Ceo-_mC3mDZGwPTo"
+          "current_key": "AIzaSyBdQex1SaxigGG95TtqeQK2ft4M6z0uMkg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "593540850089-fpdjv1r37h332s1jds1ek9cfrd1tg6cr.apps.googleusercontent.com",
+              "client_id": "471313796780-0dc41r528al9qv2hqro7qq31j4a5qvda.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

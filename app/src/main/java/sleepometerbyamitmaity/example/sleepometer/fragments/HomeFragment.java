@@ -534,8 +534,8 @@ public class HomeFragment extends Fragment {
 
     private void showDialog(){
         new AlertDialog.Builder(requireContext())
-                .setTitle("Title")
-                .setMessage("Body")
+                .setTitle("Sleep Score Card")
+                .setMessage("Excellent: 80-100\nGood: 60-80\nAverage: 40-60.")
                 .setNegativeButton("Ok",null)
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .show();
