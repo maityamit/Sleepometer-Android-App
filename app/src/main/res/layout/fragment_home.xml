@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,9 +11,9 @@
 
 
     <LinearLayout
+        android:id="@+id/first_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/first_container"
         android:orientation="vertical">
 
 
@@ -82,28 +83,26 @@
             android:id="@+id/element_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_below="@id/first_container"
-            android:orientation="vertical"
-            >
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/ele_container_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ele_container_1"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
-                >
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="5dp"
-                    android:background="@drawable/button_colour"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_baseline_info_24"
                     android:padding="5dp">
 
                     <RelativeLayout
@@ -115,20 +114,21 @@
                             android:id="@+id/sleepScore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingEnd="16.dp"
                             android:padding="10dp"
+                            android:paddingEnd="16.dp"
                             android:text="Sleep Score"
                             android:textColor="#AAA9A9"
                             android:textSize="15sp" />
+
                         <ImageView
                             android:id="@+id/sleepScore_info"
-                            android:layout_alignEnd="@id/sleepScore"
+                            android:layout_width="14.dp"
+                            android:layout_height="14.dp"
                             android:layout_alignTop="@id/sleepScore"
+                            android:layout_alignEnd="@id/sleepScore"
                             android:layout_alignBottom="@id/sleepScore"
                             android:contentDescription=""
-                            android:src="@drawable/ic_baseline_info_24"
-                            android:layout_width="14.dp"
-                            android:layout_height="14.dp"/>
+                            android:src="@drawable/ic_baseline_info_24" />
 
                         <TextView
                             android:id="@+id/sleepScore_data"
@@ -153,7 +153,6 @@
                             android:textColor="#AAA9A9"
                             android:textSize="20sp" />
 
-
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -161,21 +160,20 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_colour"
-                    android:layout_margin="5dp"
                     android:padding="5dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        >
+                        android:layout_height="match_parent">
 
 
                         <TextView
+                            android:id="@+id/avg_sleep_duration"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/avg_sleep_duration"
                             android:padding="10dp"
                             android:text="Avg Sleep Duration"
                             android:textColor="#AAA9A9"
@@ -210,51 +208,47 @@
 
 
             <LinearLayout
+                android:id="@+id/ele_container_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/ele_container_2"
-                android:orientation="horizontal"
-                android:weightSum="2"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                >
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_colour"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    >
+                    android:padding="5dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        >
+                        android:layout_height="match_parent">
 
 
                         <TextView
+                            android:id="@+id/SleepAtTime"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/SleepAtTime"
                             android:padding="10dp"
                             android:text="Sleep at Time"
                             android:textColor="#AAA9A9"
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/SleepAtTime_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_below="@id/SleepAtTime"
                             android:paddingLeft="10dp"
                             android:paddingBottom="10dp"
-                            android:textStyle="bold"
-                            android:id="@+id/SleepAtTime_time"
-                            android:layout_below="@id/SleepAtTime"
                             android:text="22:00 "
                             android:textColor="@color/white"
-                            android:textSize="20sp" />
-
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
 
                     </RelativeLayout>
@@ -264,22 +258,20 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_colour"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    >
+                    android:padding="5dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        >
+                        android:layout_height="match_parent">
 
 
                         <TextView
+                            android:id="@+id/wakeUpTimeHint"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/wakeUpTimeHint"
                             android:padding="10dp"
                             android:text="Wake up time"
                             android:textColor="#AAA9A9"
@@ -288,8 +280,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/wakeUpTimeHint"
-                            >
+                            android:layout_below="@id/wakeUpTimeHint">
 
                             <TextView
                                 android:id="@+id/wakeUpTimeHint_time"
@@ -298,10 +289,10 @@
                                 android:layout_below="@id/wakeUpTimeHint"
                                 android:paddingLeft="10dp"
                                 android:paddingBottom="10dp"
-                                android:textStyle="bold"
                                 android:text="06:00 "
                                 android:textColor="@color/white"
-                                android:textSize="20sp" />
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
 
                         </LinearLayout>

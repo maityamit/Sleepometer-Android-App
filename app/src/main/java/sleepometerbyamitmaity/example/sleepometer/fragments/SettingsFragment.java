@@ -24,10 +24,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
+import sleepometerbyamitmaity.example.sleepometer.ProfileActivity;
 import sleepometerbyamitmaity.example.sleepometer.R;
 import sleepometerbyamitmaity.example.sleepometer.databinding.FragmentSettingsBinding;
 import sleepometerbyamitmaity.example.sleepometer.modelClasses.Users;
@@ -111,6 +113,14 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        binding.settingsUserProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
@@ -150,7 +160,13 @@ public class SettingsFragment extends Fragment {
                         fullname = fullname.substring(0, fullname.indexOf(" "));
                     }
 
-                    binding.settingsName.setText(fullname + " !");
+                    Object pfpUrl = snapshot.child("user_image").getValue();
+                    if (pfpUrl != null) {
+                        // If the url is not null, then adding the image
+                        Picasso.get().load(pfpUrl.toString()).placeholder(R.drawable.profile)
+                                .error(R.drawable.profile)
+                                .into(binding.settingsUserProfileImage);
+                    }
 
 
                 }

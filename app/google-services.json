@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "593540850089",
-    "firebase_url": "https://sleepomeeter-default-rtdb.firebaseio.com",
-    "project_id": "sleepomeeter",
-    "storage_bucket": "sleepomeeter.appspot.com"
+    "project_number": "371782611421",
+    "firebase_url": "https://sleepometerbyamitmaity-default-rtdb.firebaseio.com",
+    "project_id": "sleepometerbyamitmaity",
+    "storage_bucket": "sleepometerbyamitmaity.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:593540850089:android:5d71fb2a677dea62b3a4b8",
+        "mobilesdk_app_id": "1:371782611421:android:e86e6b05f92ad4d50a8634",
         "android_client_info": {
           "package_name": "sleepometerbyamitmaity.example.sleepometer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "593540850089-suh3lmjo8fi5sljq5n06cuds2frm17hl.apps.googleusercontent.com",
+          "client_id": "371782611421-ais37bm4994rpqgp2c4aiqq4r557216d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "sleepometerbyamitmaity.example.sleepometer",
-            "certificate_hash": "c5cb33311a1250d56c4cc100c52638626ea70cdb"
+            "certificate_hash": "85fc8f53b6d4d90fce7cfbf2affe07f4d267a7fb"
           }
         },
         {
-          "client_id": "593540850089-fpdjv1r37h332s1jds1ek9cfrd1tg6cr.apps.googleusercontent.com",
+          "client_id": "371782611421-va4h4q6oud5pma4sqdr6edlhnrnat2qa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAS2n3NlbepZMzkwx0Ceo-_mC3mDZGwPTo"
+          "current_key": "AIzaSyDT22B4xggmz4v2iy5W2_ZQ7mfDlvwOPvU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "593540850089-fpdjv1r37h332s1jds1ek9cfrd1tg6cr.apps.googleusercontent.com",
+              "client_id": "371782611421-j0te1h3pt5g9m4to5cjk9jvkm84pcis3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
