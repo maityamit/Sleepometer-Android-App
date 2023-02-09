@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/window_background"
+    android:background="@drawable/background_app"
     android:orientation="vertical"
     tools:context=".fragments.HomeFragment">
 
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/ic_baseline_info_24"
+                    android:background="@drawable/button_colour"
                     android:padding="5dp">
 
                     <RelativeLayout
@@ -115,15 +115,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:paddingEnd="16.dp"
+                            android:paddingEnd="16dp"
                             android:text="Sleep Score"
                             android:textColor="#AAA9A9"
                             android:textSize="15sp" />
 
                         <ImageView
                             android:id="@+id/sleepScore_info"
-                            android:layout_width="14.dp"
-                            android:layout_height="14.dp"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
                             android:layout_alignTop="@id/sleepScore"
                             android:layout_alignEnd="@id/sleepScore"
                             android:layout_alignBottom="@id/sleepScore"

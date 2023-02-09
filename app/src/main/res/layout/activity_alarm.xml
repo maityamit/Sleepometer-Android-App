@@ -7,14 +7,15 @@
 
     <!--Added Time picker just to pick the alarm time-->
     <!--gravity is aligned to center-->
+
+    <!--Added Toggle Button to set the alarm on or off-->
+    <!--ByDefault toggleButton is set to false-->
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-    <!--Added Toggle Button to set the alarm on or off-->
-    <!--ByDefault toggleButton is set to false-->
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"

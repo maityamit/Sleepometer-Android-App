@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -219,11 +220,16 @@ public class HomeFragment extends Fragment {
                 .setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
-                        long totalMillisec = (Math.abs(sleepMilli.getHour()-wakeMilli.getHour())*60
-                                +Math.abs(sleepMilli.getMinute()-wakeMilli.getMinute()))*1000;
-                        upDateWinNode(totalMillisec,today_datee);
-                        Toast.makeText(getContext(), "Done. ", Toast.LENGTH_SHORT).show();
+                        if(sleepMilli!=null && wakeMilli !=null){
+                            String today_datee = new SimpleDateFormat("dd-M-yyyy").format(new Date());
+                            long totalMillisec = (Math.abs(sleepMilli.getHour()-wakeMilli.getHour())*60
+                                    +Math.abs(sleepMilli.getMinute()-wakeMilli.getMinute()))*1000;
+                            upDateWinNode(totalMillisec,today_datee);
+                            Toast.makeText(getContext(), "Done. ", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(getContext(), "Kindly set valid sleep and wake up time!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
