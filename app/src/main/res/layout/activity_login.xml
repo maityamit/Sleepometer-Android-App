@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/g_sign" />
+        android:src="@drawable/google_sign_in_button_final" />
 
 
     <TextView
@@ -46,6 +46,5 @@
         android:text="track your sleep"
         android:textColor="#005BC7"
         android:textStyle="bold" />
-
 
 </RelativeLayout>
