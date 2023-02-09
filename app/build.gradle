@@ -1,5 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+plugins {
+    id 'com.android.application'
+
+    // Add the Google services Gradle plugin
+    id 'com.google.gms.google-services'
+
+}
 
 android {
     compileSdkVersion 31
@@ -29,6 +34,7 @@ android {
     buildFeatures{
         viewBinding true
     }
+
 }
 
 dependencies {
@@ -77,7 +83,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
 
 
-
+    implementation platform('com.google.firebase:firebase-bom:31.2.0')
 
 
 

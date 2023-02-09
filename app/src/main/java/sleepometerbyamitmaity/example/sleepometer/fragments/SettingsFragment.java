@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
@@ -15,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Objects;
 
 import sleepometerbyamitmaity.example.sleepometer.ProfileActivity;
@@ -78,7 +82,11 @@ public class SettingsFragment extends Fragment {
         binding.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                shareApp(getContext());
+                try {
+                    shareApp(getContext());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -130,20 +138,22 @@ public class SettingsFragment extends Fragment {
         startActivity(rateIntent);
     }
 
-    private static void shareApp(Context context)
-    {
+    public void shareApp(Context context) throws IOException {
         final String appPackageName = context.getPackageName();
         String send = "Hi , I would like to invite you to install this app called Sleepometer \n" + "https://play.google.com/store/apps/details?id=" + appPackageName;
-        Bitmap b = BitmapFactory.decodeResource(context.getResources(), R.drawable.banner);
+
         Intent share = new Intent(Intent.ACTION_SEND);
-        share.setType("image/jpeg");
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        b.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        share.putExtra(Intent.EXTRA_TEXT, send);
-        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), b, "Invite", null);
-        Uri imageUri = Uri.parse(path);
-        share.putExtra(Intent.EXTRA_STREAM, imageUri);
-        context.startActivity(share);
+
+        ImageView i = new ImageView(context);
+        i.setImageResource(R.drawable.banner);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) i.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+        Uri uri = getImageToShare(bitmap);
+        share.putExtra(Intent.EXTRA_TEXT,send);
+        share.putExtra(Intent.EXTRA_STREAM,uri);
+        share.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        share.setType("image/*");
+        context.startActivity(Intent.createChooser(share, "Invite"));
     }
 
     private void dataRetriveFromFirebase() {
@@ -179,4 +189,21 @@ public class SettingsFragment extends Fragment {
             }
         });
     }
+     Uri getImageToShare(Bitmap bitmap) throws IOException {
+        File folder = new File(getContext().getCacheDir(),"image");
+
+
+        folder.mkdirs();
+        File file= new File(folder,"sharedImage.jpg");
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,fileOutputStream);
+        fileOutputStream.flush();
+        fileOutputStream.close();
+
+        Uri uri = FileProvider.getUriForFile(getContext(),"sleepometerbyamitmaity.example.sleepometer",file);
+        return uri;
+
+    }
+
 }
