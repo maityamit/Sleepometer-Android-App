@@ -7,9 +7,10 @@
 
     <gradient
         android:type="radial"
-        android:gradientRadius="@dimen/bannerWeightSum"
-        android:endColor="#3591F3"
-        android:startColor="#66A9F1">
+        android:gradientRadius="250dp"
+        android:endColor="#2193D7"
+        android:centerColor="#1565C0"
+        android:startColor="#16569C">
     </gradient>
 
 </shape>
