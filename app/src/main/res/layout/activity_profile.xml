@@ -80,7 +80,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:background="@drawable/input_background"
+        android:background="@drawable/shape"
         android:backgroundTint="#FF5454"
         android:elevation="10dp"
         android:text="Logout"
