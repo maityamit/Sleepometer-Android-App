@@ -7,6 +7,7 @@
 
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -33,6 +34,12 @@
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
+            <View
+                android:layout_width="2dp"
+                android:layout_height="50dp"
+
+
+                android:background="#9C9999"/>
 
             <TextView
                 android:id="@+id/setWakeTimeTv"

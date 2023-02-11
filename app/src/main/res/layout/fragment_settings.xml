@@ -225,7 +225,7 @@
             android:layout_width="150dp"
             android:layout_height="57dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/github" />
+            android:src="@drawable/github2" />
 
 
     </LinearLayout>
@@ -244,14 +244,14 @@
             android:id="@+id/linkedin"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/linkedin" />
+            android:src="@drawable/linkedinlogo" />
 
         <ImageView
             android:id="@+id/github"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="5dp"
-            android:src="@drawable/github_logo" />
+            android:src="@drawable/github3" />
 
 
     </LinearLayout>
