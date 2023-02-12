@@ -37,8 +37,12 @@
   
 <h1 align=center> Project Participated ✨ </h1>
  <p align="center">
-  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="40%" /></a>
-  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/hacktoberfest.png" width="40%" /></a>
+  
+  1. Hacktoberfest <br>
+  2. HackClub RAIT <br>
+  3. Kharagpur Winter of Code <br>
+  4. Iwoc <br>
+  5. JGEC Winter of Code <br>
   
 
 <br>
