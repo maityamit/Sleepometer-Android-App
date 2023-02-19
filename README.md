@@ -22,6 +22,14 @@
   ## 🛣️ How to use this app ?
   ### &nbsp; &nbsp; &nbsp; [Flow of Control](FlowofControl.md)
 
+ # <h1 align=center>🧑‍💻 CONTRIBUTION 👏</h1>
+
+- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Any contributions you make are greatly appreciated.
+- Check out our [contribution guidelines](/CONTRIBUTING.md) for more information.
+
+<br>
+
 <h1 align=center> Project Admin  🤵 </h1>
 
   <p align="center">
@@ -41,12 +49,13 @@
 <h1 align=center> Project Participated ✨ </h1>
  <p align="center">
   
+  <b><h3>
   1. Hacktoberfest <br>
   2. HackClub RAIT <br>
   3. Kharagpur Winter of Code <br>
   4. Iwoc <br>
   5. JGEC Winter of Code <br>
-  
+  <b><h3>
 
 <br>
 
@@ -94,8 +103,7 @@
 </a>
   
 
-## 📸 Screenshots
- 
+## <h1 align=center>Screenshots 📸</h1>
 
  
 
@@ -110,7 +118,11 @@
 <br>
 <br>
   
-  
+---
+<div align="center">
+    <h3><b>Take a moment to star ⭐ the project if you like it</b></h3>
+    <h3>Do checkout the other repos 💫</h3> 
+</div>
+
 [Amit Maity](https://www.linkedin.com/in/maityamit)
-  
 
