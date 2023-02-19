@@ -1,33 +1,50 @@
 {
   "project_info": {
-    "project_number": "444860473577",
-    "project_id": "sleepometer-fcdbd",
-    "storage_bucket": "sleepometer-fcdbd.appspot.com"
+    "project_number": "593540850089",
+    "firebase_url": "https://sleepomeeter-default-rtdb.firebaseio.com",
+    "project_id": "sleepomeeter",
+    "storage_bucket": "sleepomeeter.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:444860473577:android:8e9c6627a48f4d399ad078",
+        "mobilesdk_app_id": "1:593540850089:android:5d71fb2a677dea62b3a4b8",
         "android_client_info": {
           "package_name": "sleepometerbyamitmaity.example.sleepometer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "444860473577-3puj5jqh9rb88u4gq7v7oabn2n4qtha8.apps.googleusercontent.com",
+          "client_id": "593540850089-d5l3o6slo9p1u6iv65mh1ij9iombmpdd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sleepometerbyamitmaity.example.sleepometer",
+            "certificate_hash": "a92eb256d353c675351a96e7f55ea3990da1a7dd"
+          }
+        },
+        {
+          "client_id": "593540850089-suh3lmjo8fi5sljq5n06cuds2frm17hl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sleepometerbyamitmaity.example.sleepometer",
+            "certificate_hash": "c5cb33311a1250d56c4cc100c52638626ea70cdb"
+          }
+        },
+        {
+          "client_id": "593540850089-fpdjv1r37h332s1jds1ek9cfrd1tg6cr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBnjaIl6JQ8qqDDAR-uH8WmjD7qDSLlqPQ"
+          "current_key": "AIzaSyAS2n3NlbepZMzkwx0Ceo-_mC3mDZGwPTo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "444860473577-3puj5jqh9rb88u4gq7v7oabn2n4qtha8.apps.googleusercontent.com",
+              "client_id": "593540850089-fpdjv1r37h332s1jds1ek9cfrd1tg6cr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

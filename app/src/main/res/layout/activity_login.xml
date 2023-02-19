@@ -13,6 +13,7 @@
         android:layout_height="242dp"
         android:layout_centerInParent="true"
         android:src="@drawable/logo" />
+
     <ImageView
         android:id="@+id/gotoGoogleBtn"
         android:layout_width="250dp"
