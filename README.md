@@ -15,31 +15,31 @@
  
 # Process of project 
 
-   📌We Defined the core features and functionality of the app, such as sleep measurement, data tracking, and visualization of sleep data.
-   📌We have Determine the target audience and user personas for the app.
-   📌We have Ensure that the app is user-friendly, easy to navigate, and visually appealing.
-   📌We have Developed features to track daily and weekly sleep patterns, such as visualizations of sleep data over time and comparisons to previous sleep patterns.
-   📌We have Test the app thoroughly to ensure that it functions correctly and is bug-free.
-   📌We have Publish the app on the Google Play Store for users to download and use.
-   📌We have Monitor user feedback and reviews to identify areas for improvement and make updates to the app as needed.
+   📌We Defined the core features and functionality of the app, such as sleep measurement, data tracking, and visualization of sleep data <br>
+   📌We have Determine the target audience and user personas for the app. <br>
+   📌We have Ensure that the app is user-friendly, easy to navigate, and visually appealing <br>
+   📌We have Developed features to track daily and weekly sleep patterns, such as visualizations of sleep data over time and comparisons to previous sleep patterns <br>
+   📌We have Test the app thoroughly to ensure that it functions correctly and is bug-free <br>
+   📌We have Publish the app on the Google Play Store for users to download and use <br>
+   📌We have Monitor user feedback and reviews to identify areas for improvement and make updates to the app as needed <br>
 ---
 
 # work_flow of project 
 
-  📌Defining the project scope and goals
-  📌Chooseing the technologies and tools
-  📌Seting up the development environment
-  📌Implementing the core features
-  📌Testing the app
-  📌Finalizing and polishing the app
-  📌Releasing the app
+  📌Defining the project scope and goals <br>
+  📌Chooseing the technologies and tools <br>
+  📌Seting up the development environment <br>
+  📌Implementing the core features <br>
+  📌Testing the app <br>
+  📌Finalizing and polishing the app <br>
+  📌Releasing the app <br>
 
 ---
 # aim of project
 
-  📌We provided an easy-to-use tool for users to measure and track their sleep patterns
-  📌We accurately measure the user's sleep hours and provide an intuitive representation of the data in the form of day-wise sleep hours and the last 7 days' average sleep
-  📌the goal of this project is to promote healthy sleep habits by helping users understand their sleep patterns and identify areas for improvement
+  📌We provided an easy-to-use tool for users to measure and track their sleep patterns<br>
+  📌We accurately measure the user's sleep hours and provide an intuitive representation of the data in the form of day-wise sleep hours and the last 7 days' average sleep <br>
+  📌the goal of this project is to promote healthy sleep habits by helping users understand their sleep patterns and identify areas for improvement <br>
  
 ---
  ## 💡 Features Used
