@@ -69,9 +69,11 @@ keytool -list -v -keystore C:\Users\your_user_name\.android\debug.keystore -alia
 keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
 ```
 
-18. Download the google-services.json file in your firebase project and replace it with the google-services.json present in the cloned project.
+17. Download the google-services.json file in your firebase project and replace it with the google-services.json present in the cloned project.
 
-19. Uncomment all the firebase dependencies and run gradle sync again.
+18. Uncomment all the firebase dependencies and run gradle sync again.
+
+19. Copy the Oauth client ID from google-services.json (usually on line 18) and paste it into the server client ID in strings.xml.
 
 20. Perform your desired changes to the code base.
 
@@ -85,29 +87,29 @@ git status
 git  diff
 ```
 
-21. Stage your changes.
+22. Stage your changes.
 
 ```
 git add . <\files_that_you_made_changes>
 ```
 
-22. Commit your changes.
+23. Commit your changes.
 
 ```
 git commit -m "relavant message"
 ```
 
-23. Push the committed changes in your feature branch to your remote repository.
+24. Push the committed changes in your feature branch to your remote repository.
 
 ```
 git push -u origin <your_branch_name>
 ```
 
-24. To create a pull request, click on `compare and pull requests`.
+25. To create a pull request, click on `compare and pull requests`.
 
-25. Add an appropriate title and description to your PR explaining your changes.
+26. Add an appropriate title and description to your PR explaining your changes.
 
-26. Click on `Create pull request`.
+27. Click on `Create pull request`.
 
 Congratulations🎉, you have made a PR to the Sleepometer-Android-App.
 Wait for your submission to be accepted and your PR to be merged by a maintainer.
