@@ -1,6 +1,6 @@
 # How to Contribute
 
-If you think that you can add a new feature or want to fix a bug, we invite you to contribute to FunwithPhysics and make this project better. To start contributing, follow the below instructions:
+If you think that you can add a new feature or want to fix a bug, we invite you to contribute to [Sleepometer-Android-App](https://github.com/maityamit/Sleepometer-Android-App/) and make this project better. To start contributing, follow the below instructions:
 
 1. Create a folder at your desire location (usually at your desktop).
 
@@ -10,7 +10,7 @@ If you think that you can add a new feature or want to fix a bug, we invite you 
 
    Run command `git init`
 
-4. Fork this Repo
+4. [Fork](https://github.com/maityamit/Sleepometer-Android-App/fork) this Repo
 
 5. Clone your forked repository of project.
 

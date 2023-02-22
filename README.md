@@ -1,11 +1,11 @@
 # Sleepometer 😴 Android App 
 
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/>  <a href="https://www.java.com" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/android/android-plain.svg" alt="Android" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank">  
+<a href="https://www.java.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="40" height="40"/></a> <a href="https://www.android.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/android/android-plain.svg" alt="Android" width="40" height="40"/> </a>
   
   
 ## 🔗 Download the App 
 
-<a href="https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer"><img src="https://github.com/maityamit/Heritsm-Heritage_of_India-Application/blob/master/Demo/800px-Google_Play_Store_badge_EN.svg.png" width="20%" /></a>
+<a href="https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer" target="_blank"><img src="https://raw.githubusercontent.com/maityamit/Heritsm-Heritage_of_India-Application/master/Demo/800px-Google_Play_Store_badge_EN.svg.png" width="20%" /></a>
  
  ## 🤔 What is this App
  
@@ -18,6 +18,17 @@
 3. Shared Preference for store temp data.
 4. Pie Chart, Line Chart.
 5. CalendarView.
+
+  ## 🛣️ How to use this app ?
+  ### &nbsp; &nbsp; &nbsp; [Flow of Control](FlowofControl.md)
+
+ # <h1 align=center>🧑‍💻 CONTRIBUTION 👏</h1>
+
+- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Any contributions you make are greatly appreciated.
+- Check out our [contribution guidelines](/CONTRIBUTING.md) for more information.
+
+<br>
 
 <h1 align=center> Project Admin  🤵 </h1>
 
@@ -37,9 +48,14 @@
   
 <h1 align=center> Project Participated ✨ </h1>
  <p align="center">
-  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/rait_banner.png" width="40%" /></a>
-  <a href="https://github.com/maityamit"><img src="https://github.com/maityamit/Sleepometer-Android-App/blob/master/Demo/hacktoberfest.png" width="40%" /></a>
   
+  <b><h3>
+  1. Hacktoberfest <br>
+  2. HackClub RAIT <br>
+  3. Kharagpur Winter of Code <br>
+  4. Iwoc <br>
+  5. JGEC Winter of Code <br>
+  <b><h3>
 
 <br>
 
@@ -86,8 +102,8 @@
   <br>
 </a>
   
-  ## 📸 Screenshots
- 
+
+## <h1 align=center>Screenshots 📸</h1>
 
  
 
@@ -102,7 +118,11 @@
 <br>
 <br>
   
-  
+---
+<div align="center">
+    <h3><b>Take a moment to star ⭐ the project if you like it</b></h3>
+    <h3>Do checkout the other repos 💫</h3> 
+</div>
+
 [Amit Maity](https://www.linkedin.com/in/maityamit)
-  
 
