@@ -9,20 +9,19 @@
 
 
     <ImageView
-        android:layout_width="265dp"
-        android:layout_height="242dp"
+        android:layout_width="250dp"
+        android:layout_height="209dp"
         android:layout_centerInParent="true"
         android:src="@drawable/logo" />
-    <ImageView
-        android:id="@+id/gotoGoogleBtn"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/g_login" />
 
-
+        <ImageView
+            android:id="@+id/gotoGoogleBtn"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:src="@drawable/googlesignin"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,8 +29,8 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/amaranth"
         android:text="Sleepometer"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <TextView
@@ -39,10 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="77dp"
+        android:textSize="18sp"
         android:fontFamily="@font/architects_daughter"
-        android:text="track your sleep"
-        android:textColor="#005BC7"
+        android:text="Track Your Sleep"
+        android:textColor="#043268"
         android:textStyle="bold" />
 
 </RelativeLayout>
