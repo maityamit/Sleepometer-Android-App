@@ -69,24 +69,22 @@
             android:gravity="center">
 
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/setSleepTimeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
                 android:text="set sleep time"
                 android:background="@drawable/button_colour"/>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/setWakeTimeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="10dp"
                 android:text="set wake up time"
-                android:textColor="@color/white"
                 android:background="@drawable/button_colour"/>
         </LinearLayout>
     </LinearLayout>
