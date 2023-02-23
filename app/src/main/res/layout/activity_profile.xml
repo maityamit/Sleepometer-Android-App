@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Profile"
-        android:textColor="#434343"
-        android:textSize="28sp"
+        android:textColor="#101010"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
 
@@ -81,9 +81,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:background="@drawable/shape"
-        android:backgroundTint="#FF5454"
-        android:elevation="10dp"
+        android:backgroundTint="#F64242"
+        android:elevation="20dp"
         android:text="Logout"
+        android:textSize="18sp"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 

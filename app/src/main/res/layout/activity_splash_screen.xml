@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/splashIcon"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="189dp"
+            android:layout_height="206dp"
             android:src="@drawable/logo" />
 
         <TextView
@@ -26,11 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/amaranth"
             android:text="Sleepometer"
             android:textColor="@android:color/white"
-            android:textSize="28sp"
+            android:textSize="35sp"
             android:textStyle="bold" />
 
         <TextView
@@ -38,10 +38,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/architects_daughter"
-            android:text="track your sleep"
-            android:textColor="#043F85"
+            android:text="Track Your Sleep"
+            android:textColor="#043268"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
 

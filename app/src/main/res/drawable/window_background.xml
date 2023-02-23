@@ -7,9 +7,9 @@
 
     <gradient
         android:type="radial"
-        android:gradientRadius="250dp"
+        android:gradientRadius="300dp"
         android:endColor="#2193D7"
-        android:centerColor="#1565C0"
+        android:centerColor="#1561B8"
         android:startColor="#16569C">
     </gradient>
 
