@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="10dp"
-            android:text="Please wait..."
+            android:textSize="15dp"
+            android:text="Please Wait..."
             android:textColor="@color/black"
             android:textStyle="bold" />
 
