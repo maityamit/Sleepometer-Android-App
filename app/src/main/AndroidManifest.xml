@@ -17,9 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sleepometer"
         android:exported="true">
-        <activity android:name=".ProfileActivity"/>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait" />
         <activity android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +30,7 @@
 
         </activity>
         <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
 
         </activity>
