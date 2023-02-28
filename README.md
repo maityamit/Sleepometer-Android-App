@@ -11,7 +11,7 @@
  
  ✍️ This will basically measure your sleep, and represent the overall day-wise sleep hours and the last 7 days' average sleep also can measure.
  
- ---
+
  
 # Process of project 
 
@@ -22,7 +22,6 @@
    📌We have Test the app thoroughly to ensure that it functions correctly and is bug-free <br>
    📌We have Publish the app on the Google Play Store for users to download and use <br>
    📌We have Monitor user feedback and reviews to identify areas for improvement and make updates to the app as needed <br>
----
 
 # work_flow of project 
 
