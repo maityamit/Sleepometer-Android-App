@@ -6,6 +6,19 @@
 ## 🔗 Download the App 
 
 <a href="https://play.google.com/store/apps/details?id=sleepometerbyamitmaity.example.sleepometer" target="_blank"><img src="https://raw.githubusercontent.com/maityamit/Heritsm-Heritage_of_India-Application/master/Demo/800px-Google_Play_Store_badge_EN.svg.png" width="20%" /></a>
+<!-- TABLE OF CONTENTS --> 
+
+#### Table of Contents :
+* [Overview](#Overview)
+* [Process of project](#Process-of-project)
+* [Workflow of the project](#Workflow-of-the-project)
+* [Features used](#Features-used)
+* [How-to-use-this-app](#How-to-use-this-app)
+* [Project Participated](#Project-Participated)
+* [Contribution Guidelines](#Contribution-Guidelines)
+* [Project Contributors](#Project-Contributors)
+
+
  
  ## 🤔 What is this App
  
