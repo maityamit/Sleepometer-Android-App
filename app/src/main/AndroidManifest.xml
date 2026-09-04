@@ -39,7 +39,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <receiver android:name=".alarmBroadcastReceiver.AlarmReceiver"/>
+        <receiver
+            android:name=".alarmBroadcastReceiver.AlarmReceiver"
+            android:exported="false" />
         <provider
             android:authorities="sleepometerbyamitmaity.example.sleepometer"
             android:name="androidx.core.content.FileProvider"

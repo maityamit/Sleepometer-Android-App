@@ -47,7 +47,7 @@ public class Alarm extends AppCompatActivity {
             Intent intent = new Intent(this, AlarmReceiver.class);
 
             // we call broadcast using pendingIntent
-            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
             time = (calendar.getTimeInMillis() - (calendar.getTimeInMillis() % 60000));
             if (System.currentTimeMillis() > time) {

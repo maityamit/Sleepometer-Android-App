@@ -7,15 +7,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    namespace 'sleepometerbyamitmaity.example.sleepometer'
+    compileSdk 31
 
     defaultConfig {
         applicationId "sleepometerbyamitmaity.example.sleepometer"
-        minSdkVersion 23
-        targetSdkVersion 31
-        versionCode 2
-        versionName "1.0.1"
+        minSdk 23
+        targetSdk 36
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,13 +48,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-    implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.4'
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.70' // for use bottom nav
 
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'sun.bob:mcalendarview:1.0.0'
-    implementation 'com.yarolegovich:lovely-dialog:1.1.1'
 
 
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
@@ -65,27 +64,14 @@ dependencies {
 
 
     //Firebase
-    implementation platform('com.google.firebase:firebase-bom:29.3.1')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-auth:21.0.3'
-    implementation 'com.google.firebase:firebase-database:20.0.4'
-    implementation 'com.google.firebase:firebase-core:20.1.2'
-    implementation 'com.google.firebase:firebase-storage:20.0.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.firebase:firebase-firestore:24.1.1'
-    implementation 'com.google.firebase:firebase-inappmessaging-display:20.1.2'
-    implementation 'com.google.firebase:firebase-analytics:20.1.2'
-    implementation 'com.firebaseui:firebase-ui-database:6.2.1'
-    implementation 'com.google.android.gms:play-services-auth:20.2.0'
-    implementation 'com.google.firebase:firebase-messaging:23.0.3'
-    implementation 'com.google.firebase:firebase-inappmessaging-display'
-    implementation 'com.google.firebase:firebase-firestore:24.1.1'
-    implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
-
-
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
-
-
-
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-inappmessaging-display'
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'com.google.firebase:firebase-messaging'
 
 }
